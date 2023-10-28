@@ -132,6 +132,12 @@ VALUES(3, 1, '2023-10-26', 14.50);
 INSERT INTO venda_produtos
 VALUES(1, 1);
 
+INSERT INTO venda_produtos
+VALUES(2, 1);
+
+INSERT INTO venda_produtos
+VALUES(3, 1);
+
 INSERT INTO servicos(ser_nomeServico, ser_categoria, ser_duracaoServico)
 VALUES('Corte de Cabelo', 'Cabelo', 25);
 
