@@ -1,10 +1,5 @@
 /*
 DROP DATABASE barber
-
--- Insert e Select de teste
-INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
-VALUES('Paulo', 21, '43912345678', 'Leópolis', 'Rua Leleu da Capixaba, 99');
-Select * from cliente;
 */
 CREATE DATABASE IF NOT EXISTS barber; -- cria o database barber
 
@@ -27,7 +22,7 @@ CREATE TABLE IF NOT EXISTS funcionario(
     fun_nome VARCHAR(45) NOT NULL,
     fun_cargo VARCHAR(15) NOT NULL,
     fun_nivelAcesso INT NOT NULL,
-    fun_nascimento INT,
+    fun_nascimento DATE,
     fun_telefone1 VARCHAR(11),
     fun_telefone2 VARCHAR(11),
     fun_cidade VARCHAR(30),
@@ -41,6 +36,7 @@ CREATE TABLE IF NOT EXISTS funcionario(
 CREATE TABLE IF NOT EXISTS produtos(
 	pro_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     pro_nome VARCHAR(45) NOT NULL,
+    pro_marca VARCHAR(15),
     pro_categoria VARCHAR(15) NOT NULL,
     pro_quantidade INT,
     pro_preco FLOAT,
@@ -98,3 +94,51 @@ CREATE TABLE IF NOT EXISTS cortes_servicos(
     FOREIGN KEY(ser_id)
     REFERENCES servicos(ser_id) ON DELETE SET NULL
 );
+
+/*
+
+-- INSERTS PARA TESTAR O BANCO E SUAS CONSTRAINTS
+INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
+VALUES('Jorge', 26, '43912345678', 'Leópolis', 'Rua Leleu da Capixaba, 99');
+
+INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
+VALUES('Janja', 35, '43912345678', 'Distrito Federal', '3 poderes, 3');
+
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
+	fun_cidade, fun_endereco)
+VALUES('Paulo', 'admin', 3, '2001-12-07', '43912345678', 'Cornélio Procópio', 'Rua 1, 99');
+
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
+	fun_cidade, fun_endereco)
+VALUES('Emma', 'admin', 3, '1998-01-01', '43912345678', 'Cornélio Procópio', 'Rua 2, 100');
+
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
+	fun_cidade, fun_endereco)
+VALUES('Rhay', 'admin', 3, '1994-01-01', '43912345678', 'Andirá', 'Rua 3, 101');
+
+INSERT INTO produtos(pro_nome, pro_marca, pro_categoria, pro_quantidade, pro_preco, 
+	pro_fabricacao, pro_vencimento)
+VALUES('Shampoo para cachos 1', 'SalonLine', 'Shampoos', 3, 14.50, '2023-10-28', '2024-10-28');
+
+INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
+VALUES(1, 1, '2023-10-26', 14.50);
+
+INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
+VALUES(2, 2, '2023-10-26', 14.50);
+
+INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
+VALUES(3, 1, '2023-10-26', 14.50);
+
+INSERT INTO venda_produtos
+VALUES(1, 1);
+
+INSERT INTO servicos(ser_nomeServico, ser_categoria, ser_duracaoServico)
+VALUES('Corte de Cabelo', 'Cabelo', 25);
+
+INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
+VALUES(1, 1, '2023-10-26', 25);
+
+INSERT INTO cortes_servicos
+VALUES(1, 1)
+
+*/
