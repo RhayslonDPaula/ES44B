@@ -1,6 +1,6 @@
 /*
 DROP DATABASE barber
-*/
+
 CREATE DATABASE IF NOT EXISTS barber; -- cria o database barber
 
 USE barber; -- Usa o database barber para criar as tables
@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS funcionario(
     fun_cidade VARCHAR(30),
     fun_endereco VARCHAR(50),
     CONSTRAINT chk_fun_nivelAcesso CHECK(fun_nivelAcesso BETWEEN 1 AND 3)
-    /* A constraint acima determina que apenas sejam aceitos os valores 1, 2 e 3 
-	   no nivel de acesso, sendo eles: 1: basic user, 2: Can add somethings, 3: admin level
-	*/
+    -- A constraint acima determina que apenas sejam aceitos os valores 1, 2 e 3 
+	-- no nivel de acesso, sendo eles: 1: basic user, 2: Can add somethings, 3: admin level
+	
 );
 
 CREATE TABLE IF NOT EXISTS produtos(
@@ -94,6 +94,9 @@ CREATE TABLE IF NOT EXISTS cortes_servicos(
     FOREIGN KEY(ser_id)
     REFERENCES servicos(ser_id) ON DELETE SET NULL
 );
+*/
+Select * from cliente;
+Select * from cortes;
 
 /*
 
@@ -103,6 +106,7 @@ VALUES('Jorge', 26, '43912345678', 'Leópolis', 'Rua Leleu da Capixaba, 99');
 
 INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
 VALUES('Janja', 35, '43912345678', 'Distrito Federal', '3 poderes, 3');
+--
 
 INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
 	fun_cidade, fun_endereco)
@@ -115,10 +119,12 @@ VALUES('Emma', 'admin', 3, '1998-01-01', '43912345678', 'Cornélio Procópio', '
 INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
 	fun_cidade, fun_endereco)
 VALUES('Rhay', 'admin', 3, '1994-01-01', '43912345678', 'Andirá', 'Rua 3, 101');
+--
 
 INSERT INTO produtos(pro_nome, pro_marca, pro_categoria, pro_quantidade, pro_preco, 
 	pro_fabricacao, pro_vencimento)
 VALUES('Shampoo para cachos 1', 'SalonLine', 'Shampoos', 3, 14.50, '2023-10-28', '2024-10-28');
+--
 
 INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
 VALUES(1, 1, '2023-10-26', 14.50);
@@ -128,23 +134,38 @@ VALUES(2, 2, '2023-10-26', 14.50);
 
 INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
 VALUES(3, 1, '2023-10-26', 14.50);
+--
 
 INSERT INTO venda_produtos
-VALUES(1, 1);
+VALUES(1, 1); -- [venda], [produto]
 
 INSERT INTO venda_produtos
 VALUES(2, 1);
 
 INSERT INTO venda_produtos
 VALUES(3, 1);
+--
 
 INSERT INTO servicos(ser_nomeServico, ser_categoria, ser_duracaoServico)
 VALUES('Corte de Cabelo', 'Cabelo', 25);
+--
 
 INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
 VALUES(1, 1, '2023-10-26', 25);
 
-INSERT INTO cortes_servicos
-VALUES(1, 1)
+INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
+VALUES(2, 2, '2023-10-27', 30);
 
+INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
+VALUES(2, 1, '2023-10-29', 25);
+--
+
+INSERT INTO cortes_servicos
+VALUES(1, 1);
+
+INSERT INTO cortes_servicos
+VALUES(2, 1);
+
+INSERT INTO cortes_servicos
+VALUES(3, 1);
 */
