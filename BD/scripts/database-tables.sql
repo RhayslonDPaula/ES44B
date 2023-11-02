@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS venda(
 CREATE TABLE IF NOT EXISTS venda_produtos(
 	ven_id INT,
     pro_id INT,
+    ven_pro_qtd INT,
     CONSTRAINT fk_ven_pro_ven_id 
     FOREIGN KEY(ven_id)
     REFERENCES venda(ven_id) ON DELETE SET NULL,
