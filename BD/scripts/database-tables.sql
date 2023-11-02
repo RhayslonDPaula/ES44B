@@ -1,6 +1,3 @@
-/*
-DROP DATABASE barber
-
 CREATE DATABASE IF NOT EXISTS barber; -- cria o database barber
 
 USE barber; -- Usa o database barber para criar as tables
@@ -95,12 +92,8 @@ CREATE TABLE IF NOT EXISTS cortes_servicos(
     FOREIGN KEY(ser_id)
     REFERENCES servicos(ser_id) ON DELETE SET NULL
 );
-*/
-Select * from cliente;
-Select * from cortes;
 
 /*
-
 -- INSERTS PARA TESTAR O BANCO E SUAS CONSTRAINTS
 INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
 VALUES('Jorge', 26, '43912345678', 'Leópolis', 'Rua Leleu da Capixaba, 99');
