@@ -2,14 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package View;
+
+import Model.Barbeiro;
 
 /**
  *
  * @author hyuug
  */
 public class Main {
-    public static void main(String args[]){
+     public static void main(String args[]) {
         
-    }
+         Barbeiro barbeiro = new Barbeiro();
+         barbeiro.setFun_nome("Erivelton");
+         
+     }
 }
