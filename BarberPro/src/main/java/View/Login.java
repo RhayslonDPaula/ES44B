@@ -28,98 +28,157 @@ public class Login extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
-        label_login = new javax.swing.JLabel();
-        txt_login = new javax.swing.JTextField();
-        label_senha = new javax.swing.JLabel();
-        txt_senha = new javax.swing.JTextField();
-        btn_entrar = new javax.swing.JToggleButton();
-        icon = new javax.swing.JLabel();
+        textField1 = new java.awt.TextField();
+        jFileChooser1 = new javax.swing.JFileChooser();
+        jFileChooser2 = new javax.swing.JFileChooser();
+        pan_principal = new javax.swing.JPanel();
+        pan_head = new javax.swing.JPanel();
+        lab_login = new javax.swing.JLabel();
+        pan_body = new javax.swing.JPanel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
+        bt_entrar = new javax.swing.JButton();
+        bt_sair = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
+        textField1.setText("textField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BarberPro Manager - Login");
+        setMinimumSize(new java.awt.Dimension(415, 500));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(415, 600));
         setResizable(false);
 
-        label_login.setText("Login");
+        pan_principal.setBackground(new java.awt.Color(255, 255, 255));
+        pan_principal.setMinimumSize(new java.awt.Dimension(415, 600));
 
-        txt_login.addActionListener(new java.awt.event.ActionListener() {
+        pan_head.setBackground(new java.awt.Color(106, 205, 142));
+
+        lab_login.setBackground(new java.awt.Color(153, 255, 255));
+        lab_login.setFont(new java.awt.Font("Baskerville Old Face", 1, 48)); // NOI18N
+        lab_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lab_login.setText("Login");
+
+        javax.swing.GroupLayout pan_headLayout = new javax.swing.GroupLayout(pan_head);
+        pan_head.setLayout(pan_headLayout);
+        pan_headLayout.setHorizontalGroup(
+            pan_headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_headLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lab_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pan_headLayout.setVerticalGroup(
+            pan_headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_headLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lab_login, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pan_body.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_loginActionPerformed(evt);
+                jPasswordField1ActionPerformed(evt);
             }
         });
 
-        label_senha.setText("Senha");
-
-        txt_senha.addActionListener(new java.awt.event.ActionListener() {
+        bt_entrar.setBackground(new java.awt.Color(0, 51, 102));
+        bt_entrar.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        bt_entrar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_entrar.setText("ENTRAR");
+        bt_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senhaActionPerformed(evt);
+                bt_entrarActionPerformed(evt);
             }
         });
 
-        btn_entrar.setText("Entrar");
-        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrarActionPerformed(evt);
+        bt_sair.setBackground(new java.awt.Color(249, 103, 103));
+        bt_sair.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        bt_sair.setForeground(new java.awt.Color(255, 255, 255));
+        bt_sair.setText("SAIR");
+        bt_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_sairMouseClicked(evt);
             }
         });
 
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View.imagens/barber-chair_8153229.png"))); // NOI18N
-        icon.setText("jLabel2");
+        javax.swing.GroupLayout pan_bodyLayout = new javax.swing.GroupLayout(pan_body);
+        pan_body.setLayout(pan_bodyLayout);
+        pan_bodyLayout.setHorizontalGroup(
+            pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addGroup(pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pan_bodyLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bt_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bt_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52))
+        );
+        pan_bodyLayout.setVerticalGroup(
+            pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createSequentialGroup()
+                .addContainerGap(159, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(bt_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+        );
+
+        javax.swing.GroupLayout pan_principalLayout = new javax.swing.GroupLayout(pan_principal);
+        pan_principal.setLayout(pan_principalLayout);
+        pan_principalLayout.setHorizontalGroup(
+            pan_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pan_head, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pan_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pan_principalLayout.setVerticalGroup(
+            pan_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_principalLayout.createSequentialGroup()
+                .addComponent(pan_head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pan_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(label_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label_login, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_senha)
-                                .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+            .addComponent(pan_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(icon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(label_login)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_senha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btn_entrar)
-                .addGap(48, 48, 48))
+            .addComponent(pan_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_loginActionPerformed
+    private void bt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_loginActionPerformed
+    }//GEN-LAST:event_bt_entrarActionPerformed
 
-    private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senhaActionPerformed
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_entrarActionPerformed
+    private void bt_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_sairMouseClicked
+        dispose();
+    }//GEN-LAST:event_bt_sairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,13 +216,18 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn_entrar;
-    private javax.swing.JLabel icon;
+    private javax.swing.JButton bt_entrar;
+    private javax.swing.JButton bt_sair;
     private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFileChooser jFileChooser2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel label_login;
-    private javax.swing.JLabel label_senha;
-    private javax.swing.JTextField txt_login;
-    private javax.swing.JTextField txt_senha;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lab_login;
+    private javax.swing.JPanel pan_body;
+    private javax.swing.JPanel pan_head;
+    private javax.swing.JPanel pan_principal;
+    private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }
