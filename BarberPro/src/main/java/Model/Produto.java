@@ -81,5 +81,9 @@ public class Produto {
     public void alterarEstoque(int idProd, int qtdProd){
         
     }
+    
+    public void venderProdutos(int idProduto, int qtd){
+        
+    }
             
 }

@@ -1,6 +1,8 @@
 package Model;
 
-import java.time.LocalDateTime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -8,23 +10,24 @@ import java.time.LocalDateTime;
  */
 public class Agendamento {
     private String idHorario;
-    private LocalDateTime data;
+    private Date data;
     private String nomeCliente;
-    private Funcionario nomeFuncionario;
-    private Servico servico;
+    private String nomeFuncionario;
+    private String servico;
 
-    public Agendamento(String idHorario, LocalDateTime data, String nomeCliente, Funcionario nomeFuncionario) {
+    public Agendamento(String idHorario, String data, String nomeCliente, String nomeFuncionario, String servico) throws ParseException {
         this.idHorario = idHorario;
-        this.data = data;
+        this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
         this.nomeCliente = nomeCliente;
         this.nomeFuncionario = nomeFuncionario;
+        this.servico = servico;
     }
 
     public String getIdHorario() {
         return idHorario;
     }
 
-    public LocalDateTime getData() {
+    public Date getData() {
         return data;
     }
 
@@ -32,7 +35,7 @@ public class Agendamento {
         return nomeCliente;
     }
 
-    public Funcionario getNomeFuncionario() {
+    public String getNomeFuncionario() {
         return nomeFuncionario;
     }
 
@@ -40,7 +43,7 @@ public class Agendamento {
         this.idHorario = idHorario;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
@@ -48,7 +51,7 @@ public class Agendamento {
         this.nomeCliente = nomeCliente;
     }
 
-    public void setNomeFuncionario(Funcionario nomeFuncionario) {
+    public void setNomeFuncionario(String nomeFuncionario) {
         this.nomeFuncionario = nomeFuncionario;
     }
     

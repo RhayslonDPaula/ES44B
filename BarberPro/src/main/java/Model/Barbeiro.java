@@ -16,9 +16,11 @@ public class Barbeiro extends Funcionario{
         super(fun_id, fun_nome, fun_cargo, fun_salario, idade, turno, login, senha);
     }
 
-    public Barbeiro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Barbeiro(int fun_id, String fun_nome, String login, String senha) {
+        super(fun_id, fun_nome, login, senha);
     }
+    
+    
 
     public int getVendasQtd() {
         return vendasQtd;
