@@ -8,12 +8,12 @@ package View;
  *
  * @author hyuug
  */
-public class Estoque extends javax.swing.JFrame {
+public class Agendamentos extends javax.swing.JFrame {
 
     /**
      * Creates new form Agendamento
      */
-    public Estoque() {
+    public Agendamentos() {
         initComponents();
     }
 
@@ -29,14 +29,22 @@ public class Estoque extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        label_qtd = new javax.swing.JLabel();
-        label_produto = new javax.swing.JLabel();
-        label_estoque = new javax.swing.JLabel();
-        txt_produto = new javax.swing.JTextField();
-        txt_estoque = new javax.swing.JTextField();
-        btn_pesquisar = new javax.swing.JButton();
-        quantidade = new javax.swing.JSpinner();
-        btn_adc = new javax.swing.JButton();
+        label_servico = new javax.swing.JLabel();
+        label_cliente = new javax.swing.JLabel();
+        label_funcionario = new javax.swing.JLabel();
+        label_observacao = new javax.swing.JLabel();
+        label_horario = new javax.swing.JLabel();
+        txt_cliente = new javax.swing.JTextField();
+        txt_observacao = new javax.swing.JTextField();
+        txt_funcionario = new javax.swing.JTextField();
+        txt_horario = new javax.swing.JTextField();
+        tipoDeServico = new javax.swing.JComboBox<>();
+        label_data1 = new javax.swing.JLabel();
+        txt_data1 = new javax.swing.JTextField();
+        btn_novo = new javax.swing.JButton();
+        btn_Salvar = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
+        btn_excluir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -64,40 +72,70 @@ public class Estoque extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Controle de Estoque");
+        jLabel1.setText("Agendamentos");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(140, 30, 350, 48);
+        jLabel1.setBounds(170, 30, 350, 48);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta de produtos"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Compromissos"));
         jPanel1.setLayout(null);
 
-        label_qtd.setText("Quantidade:");
-        jPanel1.add(label_qtd);
-        label_qtd.setBounds(400, 80, 70, 20);
+        label_servico.setText("Serviço:");
+        jPanel1.add(label_servico);
+        label_servico.setBounds(420, 80, 60, 20);
 
-        label_produto.setText("Produto:");
-        jPanel1.add(label_produto);
-        label_produto.setBounds(30, 40, 50, 20);
+        label_cliente.setText("Cliente:");
+        jPanel1.add(label_cliente);
+        label_cliente.setBounds(30, 40, 50, 20);
 
-        label_estoque.setText("Estoque atual:");
-        jPanel1.add(label_estoque);
-        label_estoque.setBounds(30, 80, 100, 20);
-        jPanel1.add(txt_produto);
-        txt_produto.setBounds(80, 40, 290, 20);
-        jPanel1.add(txt_estoque);
-        txt_estoque.setBounds(110, 80, 260, 20);
+        label_funcionario.setText("Funcionário:");
+        jPanel1.add(label_funcionario);
+        label_funcionario.setBounds(30, 80, 100, 20);
 
-        btn_pesquisar.setText("Pesquisar");
-        jPanel1.add(btn_pesquisar);
-        btn_pesquisar.setBounds(400, 40, 180, 23);
-        jPanel1.add(quantidade);
-        quantidade.setBounds(480, 80, 70, 30);
+        label_observacao.setText("Observação:");
+        jPanel1.add(label_observacao);
+        label_observacao.setBounds(30, 150, 70, 40);
 
-        btn_adc.setText("Adicionar");
-        jPanel1.add(btn_adc);
-        btn_adc.setBounds(190, 120, 210, 23);
+        label_horario.setText("Horário:");
+        jPanel1.add(label_horario);
+        label_horario.setBounds(350, 120, 60, 20);
+        jPanel1.add(txt_cliente);
+        txt_cliente.setBounds(80, 40, 490, 20);
+        jPanel1.add(txt_observacao);
+        txt_observacao.setBounds(100, 160, 470, 22);
+        jPanel1.add(txt_funcionario);
+        txt_funcionario.setBounds(110, 80, 260, 20);
+        jPanel1.add(txt_horario);
+        txt_horario.setBounds(400, 120, 170, 22);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Produtos"));
+        tipoDeServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoDeServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoDeServicoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tipoDeServico);
+        tipoDeServico.setBounds(470, 80, 100, 22);
+
+        label_data1.setText("Data:");
+        jPanel1.add(label_data1);
+        label_data1.setBounds(30, 120, 60, 16);
+        jPanel1.add(txt_data1);
+        txt_data1.setBounds(70, 120, 230, 22);
+
+        btn_novo.setText("+ Novo");
+        btn_novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoActionPerformed(evt);
+            }
+        });
+
+        btn_Salvar.setText("Salvar");
+
+        btn_editar.setText("Editar");
+
+        btn_excluir.setText("Excluir");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Compromissos Agendados"));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,15 +156,15 @@ public class Estoque extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menuCadastro.setText("Cadastro");
@@ -187,11 +225,6 @@ public class Estoque extends javax.swing.JFrame {
         BarraMenu.add(menuRelatorio);
 
         menuSair.setText("Sair");
-        menuSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSairActionPerformed(evt);
-            }
-        });
         BarraMenu.add(menuSair);
 
         setJMenuBar(BarraMenu);
@@ -204,19 +237,35 @@ public class Estoque extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6652, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6632, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,9 +287,13 @@ public class Estoque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menutItemUsuariosActionPerformed
 
-    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_menuSairActionPerformed
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_novoActionPerformed
+
+    private void tipoDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDeServicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoDeServicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,22 +312,14 @@ public class Estoque extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agendamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agendamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agendamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agendamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -287,24 +332,29 @@ public class Estoque extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Estoque().setVisible(true);
+                new Agendamentos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
-    private javax.swing.JButton btn_adc;
-    private javax.swing.JButton btn_pesquisar;
+    private javax.swing.JButton btn_Salvar;
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_excluir;
+    private javax.swing.JButton btn_novo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel label_estoque;
-    private javax.swing.JLabel label_produto;
-    private javax.swing.JLabel label_qtd;
+    private javax.swing.JLabel label_cliente;
+    private javax.swing.JLabel label_data1;
+    private javax.swing.JLabel label_funcionario;
+    private javax.swing.JLabel label_horario;
+    private javax.swing.JLabel label_observacao;
+    private javax.swing.JLabel label_servico;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -317,8 +367,11 @@ public class Estoque extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
-    private javax.swing.JSpinner quantidade;
-    private javax.swing.JTextField txt_estoque;
-    private javax.swing.JTextField txt_produto;
+    private javax.swing.JComboBox<String> tipoDeServico;
+    private javax.swing.JTextField txt_cliente;
+    private javax.swing.JTextField txt_data1;
+    private javax.swing.JTextField txt_funcionario;
+    private javax.swing.JTextField txt_horario;
+    private javax.swing.JTextField txt_observacao;
     // End of variables declaration//GEN-END:variables
 }

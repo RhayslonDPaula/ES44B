@@ -8,12 +8,12 @@ package View;
  *
  * @author hyuug
  */
-public class Estoque extends javax.swing.JFrame {
+public class CadastroUsuarios extends javax.swing.JFrame {
 
     /**
      * Creates new form Agendamento
      */
-    public Estoque() {
+    public CadastroUsuarios() {
         initComponents();
     }
 
@@ -29,17 +29,24 @@ public class Estoque extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        label_qtd = new javax.swing.JLabel();
-        label_produto = new javax.swing.JLabel();
-        label_estoque = new javax.swing.JLabel();
-        txt_produto = new javax.swing.JTextField();
-        txt_estoque = new javax.swing.JTextField();
-        btn_pesquisar = new javax.swing.JButton();
-        quantidade = new javax.swing.JSpinner();
-        btn_adc = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        label_nome = new javax.swing.JLabel();
+        label_nascimento = new javax.swing.JLabel();
+        label_celular = new javax.swing.JLabel();
+        label_senha = new javax.swing.JLabel();
+        label_email = new javax.swing.JLabel();
+        txt_nome = new javax.swing.JTextField();
+        txt_nascimento = new javax.swing.JTextField();
+        txt_senha = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
+        txt_celular = new javax.swing.JTextField();
+        label_funcao = new javax.swing.JLabel();
+        txt_funcao = new javax.swing.JTextField();
+        label_nAcesso = new javax.swing.JLabel();
+        txt_nAcesso = new javax.swing.JTextField();
+        btn_novo = new javax.swing.JButton();
+        btn_Salvar = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
+        btn_excluir = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         menutItemClientes = new javax.swing.JMenuItem();
@@ -64,70 +71,79 @@ public class Estoque extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Controle de Estoque");
+        jLabel1.setText("Cadastro de Usuários");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(140, 30, 350, 48);
+        jLabel1.setBounds(120, 30, 380, 48);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta de produtos"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Pessoais"));
         jPanel1.setLayout(null);
 
-        label_qtd.setText("Quantidade:");
-        jPanel1.add(label_qtd);
-        label_qtd.setBounds(400, 80, 70, 20);
+        label_nome.setText("Nome:");
+        jPanel1.add(label_nome);
+        label_nome.setBounds(30, 50, 36, 16);
 
-        label_produto.setText("Produto:");
-        jPanel1.add(label_produto);
-        label_produto.setBounds(30, 40, 50, 20);
+        label_nascimento.setText("Data de Nascimento:");
+        jPanel1.add(label_nascimento);
+        label_nascimento.setBounds(30, 100, 140, 20);
 
-        label_estoque.setText("Estoque atual:");
-        jPanel1.add(label_estoque);
-        label_estoque.setBounds(30, 80, 100, 20);
-        jPanel1.add(txt_produto);
-        txt_produto.setBounds(80, 40, 290, 20);
-        jPanel1.add(txt_estoque);
-        txt_estoque.setBounds(110, 80, 260, 20);
+        label_celular.setText("Celular:");
+        jPanel1.add(label_celular);
+        label_celular.setBounds(360, 100, 40, 20);
 
-        btn_pesquisar.setText("Pesquisar");
-        jPanel1.add(btn_pesquisar);
-        btn_pesquisar.setBounds(400, 40, 180, 23);
-        jPanel1.add(quantidade);
-        quantidade.setBounds(480, 80, 70, 30);
+        label_senha.setText("Senha:");
+        jPanel1.add(label_senha);
+        label_senha.setBounds(310, 220, 60, 20);
 
-        btn_adc.setText("Adicionar");
-        jPanel1.add(btn_adc);
-        btn_adc.setBounds(190, 120, 210, 23);
+        label_email.setText("E-mail:");
+        jPanel1.add(label_email);
+        label_email.setBounds(20, 220, 37, 20);
+        jPanel1.add(txt_nome);
+        txt_nome.setBounds(80, 50, 490, 22);
+        jPanel1.add(txt_nascimento);
+        txt_nascimento.setBounds(150, 100, 180, 22);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Produtos"));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Cliente", "Serviço", "Funcionário", "Data", "Horário", "Observação"
+        txt_senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_senhaActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        });
+        jPanel1.add(txt_senha);
+        txt_senha.setBounds(350, 220, 220, 22);
+        jPanel1.add(txt_email);
+        txt_email.setBounds(70, 220, 180, 22);
+        jPanel1.add(txt_celular);
+        txt_celular.setBounds(410, 100, 160, 22);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        label_funcao.setText("Função:");
+        jPanel1.add(label_funcao);
+        label_funcao.setBounds(30, 150, 50, 16);
+        jPanel1.add(txt_funcao);
+        txt_funcao.setBounds(80, 150, 180, 22);
+
+        label_nAcesso.setText("Nível de Acesso:");
+        jPanel1.add(label_nAcesso);
+        label_nAcesso.setBounds(270, 150, 90, 16);
+
+        txt_nAcesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nAcessoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_nAcesso);
+        txt_nAcesso.setBounds(360, 150, 210, 22);
+
+        btn_novo.setText("+ Novo");
+        btn_novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoActionPerformed(evt);
+            }
+        });
+
+        btn_Salvar.setText("Salvar");
+
+        btn_editar.setText("Editar");
+
+        btn_excluir.setText("Excluir");
 
         menuCadastro.setText("Cadastro");
 
@@ -187,11 +203,6 @@ public class Estoque extends javax.swing.JFrame {
         BarraMenu.add(menuRelatorio);
 
         menuSair.setText("Sair");
-        menuSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSairActionPerformed(evt);
-            }
-        });
         BarraMenu.add(menuSair);
 
         setJMenuBar(BarraMenu);
@@ -203,20 +214,32 @@ public class Estoque extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6652, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,9 +261,17 @@ public class Estoque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menutItemUsuariosActionPerformed
 
-    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_menuSairActionPerformed
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_novoActionPerformed
+
+    private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_senhaActionPerformed
+
+    private void txt_nAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nAcessoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nAcessoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,22 +290,14 @@ public class Estoque extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -287,24 +310,27 @@ public class Estoque extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Estoque().setVisible(true);
+                new CadastroUsuarios().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
-    private javax.swing.JButton btn_adc;
-    private javax.swing.JButton btn_pesquisar;
+    private javax.swing.JButton btn_Salvar;
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_excluir;
+    private javax.swing.JButton btn_novo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel label_estoque;
-    private javax.swing.JLabel label_produto;
-    private javax.swing.JLabel label_qtd;
+    private javax.swing.JLabel label_celular;
+    private javax.swing.JLabel label_email;
+    private javax.swing.JLabel label_funcao;
+    private javax.swing.JLabel label_nAcesso;
+    private javax.swing.JLabel label_nascimento;
+    private javax.swing.JLabel label_nome;
+    private javax.swing.JLabel label_senha;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -317,8 +343,12 @@ public class Estoque extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
-    private javax.swing.JSpinner quantidade;
-    private javax.swing.JTextField txt_estoque;
-    private javax.swing.JTextField txt_produto;
+    private javax.swing.JTextField txt_celular;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_funcao;
+    private javax.swing.JTextField txt_nAcesso;
+    private javax.swing.JTextField txt_nascimento;
+    private javax.swing.JTextField txt_nome;
+    private javax.swing.JTextField txt_senha;
     // End of variables declaration//GEN-END:variables
 }
