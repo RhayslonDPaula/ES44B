@@ -11,7 +11,7 @@ package View;
 public class Estoque extends javax.swing.JFrame {
 
     /**
-     * Creates new form Estoque
+     * Creates new form Agendamento
      */
     public Estoque() {
         initComponents();
@@ -26,71 +26,221 @@ public class Estoque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        label_qtd = new javax.swing.JLabel();
+        label_produto = new javax.swing.JLabel();
+        label_estoque = new javax.swing.JLabel();
+        txt_produto = new javax.swing.JTextField();
+        txt_estoque = new javax.swing.JTextField();
+        btn_pesquisar = new javax.swing.JButton();
+        quantidade = new javax.swing.JSpinner();
+        btn_adc = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        BarraMenu = new javax.swing.JMenuBar();
+        menuCadastro = new javax.swing.JMenu();
+        menutItemClientes = new javax.swing.JMenuItem();
+        menutItemServicos = new javax.swing.JMenuItem();
+        menutItemUsuarios = new javax.swing.JMenuItem();
+        menuServicos = new javax.swing.JMenu();
+        menutItemAgendamento = new javax.swing.JMenuItem();
+        menuVendas = new javax.swing.JMenu();
+        menutItemVenderProdutos = new javax.swing.JMenuItem();
+        menutItemEstoque = new javax.swing.JMenuItem();
+        menuRelatorio = new javax.swing.JMenu();
+        menutItemGerarRelatorio = new javax.swing.JMenuItem();
+        menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
+        setResizable(false);
+
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setLayout(null);
+
+        jLabel1.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Controle de Estoque");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(140, 30, 350, 48);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta de produtos"));
+        jPanel1.setLayout(null);
+
+        label_qtd.setText("Quantidade:");
+        jPanel1.add(label_qtd);
+        label_qtd.setBounds(400, 80, 70, 20);
+
+        label_produto.setText("Produto:");
+        jPanel1.add(label_produto);
+        label_produto.setBounds(30, 40, 50, 20);
+
+        label_estoque.setText("Estoque atual:");
+        jPanel1.add(label_estoque);
+        label_estoque.setBounds(30, 80, 100, 20);
+        jPanel1.add(txt_produto);
+        txt_produto.setBounds(80, 40, 290, 20);
+        jPanel1.add(txt_estoque);
+        txt_estoque.setBounds(110, 80, 260, 20);
+
+        btn_pesquisar.setText("Pesquisar");
+        jPanel1.add(btn_pesquisar);
+        btn_pesquisar.setBounds(400, 40, 180, 23);
+        jPanel1.add(quantidade);
+        quantidade.setBounds(480, 80, 70, 30);
+
+        btn_adc.setText("Adicionar");
+        jPanel1.add(btn_adc);
+        btn_adc.setBounds(190, 120, 210, 23);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Produtos"));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cliente", "Serviço", "Funcionário", "Data", "Horário", "Observação"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setText("Estoque");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
                 .addContainerGap())
         );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        menuCadastro.setText("Cadastro");
+
+        menutItemClientes.setText("Clientes");
+        menutItemClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menutItemClientesActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menutItemClientes);
+
+        menutItemServicos.setText("Serviços");
+        menutItemServicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menutItemServicosActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menutItemServicos);
+
+        menutItemUsuarios.setText("Usuários");
+        menutItemUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menutItemUsuariosActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menutItemUsuarios);
+
+        BarraMenu.add(menuCadastro);
+
+        menuServicos.setText("Serviços");
+
+        menutItemAgendamento.setText("Agendamento");
+        menuServicos.add(menutItemAgendamento);
+
+        BarraMenu.add(menuServicos);
+
+        menuVendas.setText("Vendas");
+
+        menutItemVenderProdutos.setText("Vender Produtos");
+        menutItemVenderProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menutItemVenderProdutosActionPerformed(evt);
+            }
+        });
+        menuVendas.add(menutItemVenderProdutos);
+
+        menutItemEstoque.setText("Estoque");
+        menuVendas.add(menutItemEstoque);
+
+        BarraMenu.add(menuVendas);
+
+        menuRelatorio.setText("Relatório");
+
+        menutItemGerarRelatorio.setText("Gerar relatório");
+        menuRelatorio.add(menutItemGerarRelatorio);
+
+        BarraMenu.add(menuRelatorio);
+
+        menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
+            }
+        });
+        BarraMenu.add(menuSair);
+
+        setJMenuBar(BarraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6652, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menutItemClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menutItemClientesActionPerformed
+
+    private void menutItemServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemServicosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menutItemServicosActionPerformed
+
+    private void menutItemVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemVenderProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menutItemVenderProdutosActionPerformed
+
+    private void menutItemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menutItemUsuariosActionPerformed
+
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_menuSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +268,21 @@ public class Estoque extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -128,9 +293,32 @@ public class Estoque extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JButton btn_adc;
+    private javax.swing.JButton btn_pesquisar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel label_estoque;
+    private javax.swing.JLabel label_produto;
+    private javax.swing.JLabel label_qtd;
+    private javax.swing.JMenu menuCadastro;
+    private javax.swing.JMenu menuRelatorio;
+    private javax.swing.JMenu menuSair;
+    private javax.swing.JMenu menuServicos;
+    private javax.swing.JMenu menuVendas;
+    private javax.swing.JMenuItem menutItemAgendamento;
+    private javax.swing.JMenuItem menutItemClientes;
+    private javax.swing.JMenuItem menutItemEstoque;
+    private javax.swing.JMenuItem menutItemGerarRelatorio;
+    private javax.swing.JMenuItem menutItemServicos;
+    private javax.swing.JMenuItem menutItemUsuarios;
+    private javax.swing.JMenuItem menutItemVenderProdutos;
+    private javax.swing.JSpinner quantidade;
+    private javax.swing.JTextField txt_estoque;
+    private javax.swing.JTextField txt_produto;
     // End of variables declaration//GEN-END:variables
 }

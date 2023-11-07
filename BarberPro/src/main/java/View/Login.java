@@ -56,7 +56,7 @@ public class Login extends javax.swing.JFrame {
 
         pan_head.setBackground(new java.awt.Color(106, 205, 142));
 
-        lab_login.setBackground(new java.awt.Color(153, 255, 255));
+        lab_login.setBackground(new java.awt.Color(0, 204, 204));
         lab_login.setFont(new java.awt.Font("Baskerville Old Face", 1, 48)); // NOI18N
         lab_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lab_login.setText("Login");

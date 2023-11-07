@@ -29,20 +29,14 @@ public class CadastroServico extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        label_nome = new javax.swing.JLabel();
-        label_nascimento = new javax.swing.JLabel();
-        label_celular = new javax.swing.JLabel();
-        label_senha = new javax.swing.JLabel();
-        label_email = new javax.swing.JLabel();
-        txt_nome = new javax.swing.JTextField();
-        txt_nascimento = new javax.swing.JTextField();
-        txt_senha = new javax.swing.JTextField();
-        txt_email = new javax.swing.JTextField();
-        txt_celular = new javax.swing.JTextField();
-        label_funcao = new javax.swing.JLabel();
-        txt_funcao = new javax.swing.JTextField();
-        label_nAcesso = new javax.swing.JLabel();
-        txt_nAcesso = new javax.swing.JTextField();
+        label_servico = new javax.swing.JLabel();
+        label_id = new javax.swing.JLabel();
+        label_preco = new javax.swing.JLabel();
+        txt_servico = new javax.swing.JTextField();
+        txt_id = new javax.swing.JTextField();
+        txt_preco = new javax.swing.JTextField();
+        label_descricao = new javax.swing.JLabel();
+        txt_descricao = new javax.swing.JTextField();
         btn_novo = new javax.swing.JButton();
         btn_Salvar = new javax.swing.JButton();
         btn_editar = new javax.swing.JButton();
@@ -71,66 +65,36 @@ public class CadastroServico extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastro de Usuários");
+        jLabel1.setText("Cadastro de Serviços");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(120, 30, 380, 48);
+        jLabel1.setBounds(140, 30, 380, 48);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Pessoais"));
         jPanel1.setLayout(null);
 
-        label_nome.setText("Nome:");
-        jPanel1.add(label_nome);
-        label_nome.setBounds(30, 50, 36, 16);
+        label_servico.setText("Serviço:");
+        jPanel1.add(label_servico);
+        label_servico.setBounds(30, 40, 50, 16);
 
-        label_nascimento.setText("Data de Nascimento:");
-        jPanel1.add(label_nascimento);
-        label_nascimento.setBounds(30, 100, 140, 20);
+        label_id.setText("ID:");
+        jPanel1.add(label_id);
+        label_id.setBounds(30, 90, 120, 20);
 
-        label_celular.setText("Celular:");
-        jPanel1.add(label_celular);
-        label_celular.setBounds(360, 100, 40, 20);
+        label_preco.setText("Preço:");
+        jPanel1.add(label_preco);
+        label_preco.setBounds(320, 90, 40, 20);
+        jPanel1.add(txt_servico);
+        txt_servico.setBounds(80, 40, 490, 22);
+        jPanel1.add(txt_id);
+        txt_id.setBounds(50, 90, 220, 22);
+        jPanel1.add(txt_preco);
+        txt_preco.setBounds(380, 90, 190, 22);
 
-        label_senha.setText("Senha:");
-        jPanel1.add(label_senha);
-        label_senha.setBounds(310, 220, 60, 20);
-
-        label_email.setText("E-mail:");
-        jPanel1.add(label_email);
-        label_email.setBounds(20, 220, 37, 20);
-        jPanel1.add(txt_nome);
-        txt_nome.setBounds(80, 50, 490, 22);
-        jPanel1.add(txt_nascimento);
-        txt_nascimento.setBounds(150, 100, 180, 22);
-
-        txt_senha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senhaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_senha);
-        txt_senha.setBounds(350, 220, 220, 22);
-        jPanel1.add(txt_email);
-        txt_email.setBounds(70, 220, 180, 22);
-        jPanel1.add(txt_celular);
-        txt_celular.setBounds(410, 100, 160, 22);
-
-        label_funcao.setText("Função:");
-        jPanel1.add(label_funcao);
-        label_funcao.setBounds(30, 150, 50, 16);
-        jPanel1.add(txt_funcao);
-        txt_funcao.setBounds(80, 150, 180, 22);
-
-        label_nAcesso.setText("Nível de Acesso:");
-        jPanel1.add(label_nAcesso);
-        label_nAcesso.setBounds(270, 150, 90, 16);
-
-        txt_nAcesso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nAcessoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_nAcesso);
-        txt_nAcesso.setBounds(360, 150, 210, 22);
+        label_descricao.setText("Descrição:");
+        jPanel1.add(label_descricao);
+        label_descricao.setBounds(30, 140, 60, 16);
+        jPanel1.add(txt_descricao);
+        txt_descricao.setBounds(90, 140, 480, 22);
 
         btn_novo.setText("+ Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -225,21 +189,21 @@ public class CadastroServico extends javax.swing.JFrame {
                 .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         pack();
@@ -264,14 +228,6 @@ public class CadastroServico extends javax.swing.JFrame {
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_novoActionPerformed
-
-    private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senhaActionPerformed
-
-    private void txt_nAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nAcessoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nAcessoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,13 +288,10 @@ public class CadastroServico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel label_celular;
-    private javax.swing.JLabel label_email;
-    private javax.swing.JLabel label_funcao;
-    private javax.swing.JLabel label_nAcesso;
-    private javax.swing.JLabel label_nascimento;
-    private javax.swing.JLabel label_nome;
-    private javax.swing.JLabel label_senha;
+    private javax.swing.JLabel label_descricao;
+    private javax.swing.JLabel label_id;
+    private javax.swing.JLabel label_preco;
+    private javax.swing.JLabel label_servico;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -351,12 +304,9 @@ public class CadastroServico extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
-    private javax.swing.JTextField txt_celular;
-    private javax.swing.JTextField txt_email;
-    private javax.swing.JTextField txt_funcao;
-    private javax.swing.JTextField txt_nAcesso;
-    private javax.swing.JTextField txt_nascimento;
-    private javax.swing.JTextField txt_nome;
-    private javax.swing.JTextField txt_senha;
+    private javax.swing.JTextField txt_descricao;
+    private javax.swing.JTextField txt_id;
+    private javax.swing.JTextField txt_preco;
+    private javax.swing.JTextField txt_servico;
     // End of variables declaration//GEN-END:variables
 }

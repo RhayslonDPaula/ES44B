@@ -29,27 +29,25 @@ public class Agendamentos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        label_codigo = new javax.swing.JLabel();
-        label_nome = new javax.swing.JLabel();
-        label_nascimento = new javax.swing.JLabel();
-        label_telefone = new javax.swing.JLabel();
-        label_celular = new javax.swing.JLabel();
-        label_cidade = new javax.swing.JLabel();
-        label_bairro = new javax.swing.JLabel();
-        label_endereco = new javax.swing.JLabel();
-        txt_nome = new javax.swing.JTextField();
-        txt_telefone = new javax.swing.JTextField();
-        txt_codigo = new javax.swing.JTextField();
-        txt_endereco = new javax.swing.JTextField();
-        txt_nascimento = new javax.swing.JTextField();
-        txt_cidade = new javax.swing.JTextField();
-        txt_bairro = new javax.swing.JTextField();
-        btn_pesquisar = new javax.swing.JButton();
-        txt_celular = new javax.swing.JTextField();
+        label_servico = new javax.swing.JLabel();
+        label_cliente = new javax.swing.JLabel();
+        label_funcionario = new javax.swing.JLabel();
+        label_observacao = new javax.swing.JLabel();
+        label_horario = new javax.swing.JLabel();
+        txt_cliente = new javax.swing.JTextField();
+        txt_observacao = new javax.swing.JTextField();
+        txt_funcionario = new javax.swing.JTextField();
+        txt_horario = new javax.swing.JTextField();
+        tipoDeServico = new javax.swing.JComboBox<>();
+        label_data1 = new javax.swing.JLabel();
+        txt_data1 = new javax.swing.JTextField();
         btn_novo = new javax.swing.JButton();
         btn_Salvar = new javax.swing.JButton();
         btn_editar = new javax.swing.JButton();
         btn_excluir = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         BarraMenu = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         menutItemClientes = new javax.swing.JMenuItem();
@@ -76,86 +74,53 @@ public class Agendamentos extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agendamentos");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(140, 30, 350, 48);
+        jLabel1.setBounds(170, 30, 350, 48);
 
-        jPanel1.setBackground(new java.awt.Color(245, 245, 245));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Pessoais"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Compromissos"));
         jPanel1.setLayout(null);
 
-        label_codigo.setText("Código:");
-        jPanel1.add(label_codigo);
-        label_codigo.setBounds(30, 50, 60, 16);
+        label_servico.setText("Serviço:");
+        jPanel1.add(label_servico);
+        label_servico.setBounds(420, 80, 60, 20);
 
-        label_nome.setText("Nome:");
-        jPanel1.add(label_nome);
-        label_nome.setBounds(30, 100, 35, 16);
+        label_cliente.setText("Cliente:");
+        jPanel1.add(label_cliente);
+        label_cliente.setBounds(30, 40, 50, 20);
 
-        label_nascimento.setText("Data de Nascimento:");
-        jPanel1.add(label_nascimento);
-        label_nascimento.setBounds(30, 150, 140, 20);
+        label_funcionario.setText("Funcionário:");
+        jPanel1.add(label_funcionario);
+        label_funcionario.setBounds(30, 80, 100, 20);
 
-        label_telefone.setText("Telefone:");
-        jPanel1.add(label_telefone);
-        label_telefone.setBounds(30, 200, 60, 16);
+        label_observacao.setText("Observação:");
+        jPanel1.add(label_observacao);
+        label_observacao.setBounds(30, 150, 70, 40);
 
-        label_celular.setText("Celular:");
-        jPanel1.add(label_celular);
-        label_celular.setBounds(360, 200, 40, 16);
+        label_horario.setText("Horário:");
+        jPanel1.add(label_horario);
+        label_horario.setBounds(350, 120, 60, 20);
+        jPanel1.add(txt_cliente);
+        txt_cliente.setBounds(80, 40, 490, 20);
+        jPanel1.add(txt_observacao);
+        txt_observacao.setBounds(100, 160, 470, 22);
+        jPanel1.add(txt_funcionario);
+        txt_funcionario.setBounds(110, 80, 260, 20);
+        jPanel1.add(txt_horario);
+        txt_horario.setBounds(400, 120, 170, 22);
 
-        label_cidade.setText("Cidade:");
-        jPanel1.add(label_cidade);
-        label_cidade.setBounds(320, 320, 60, 16);
-
-        label_bairro.setText("Bairro:");
-        jPanel1.add(label_bairro);
-        label_bairro.setBounds(40, 320, 37, 16);
-
-        label_endereco.setText("Endereço:");
-        jPanel1.add(label_endereco);
-        label_endereco.setBounds(40, 270, 70, 16);
-        jPanel1.add(txt_nome);
-        txt_nome.setBounds(80, 100, 480, 22);
-        jPanel1.add(txt_telefone);
-        txt_telefone.setBounds(100, 200, 230, 22);
-
-        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
+        tipoDeServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoDeServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_codigoActionPerformed(evt);
+                tipoDeServicoActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_codigo);
-        txt_codigo.setBounds(90, 50, 220, 22);
+        jPanel1.add(tipoDeServico);
+        tipoDeServico.setBounds(470, 80, 100, 22);
 
-        txt_endereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_enderecoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_endereco);
-        txt_endereco.setBounds(100, 270, 470, 22);
-        jPanel1.add(txt_nascimento);
-        txt_nascimento.setBounds(150, 150, 250, 22);
-
-        txt_cidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_cidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_cidade);
-        txt_cidade.setBounds(370, 320, 200, 22);
-        jPanel1.add(txt_bairro);
-        txt_bairro.setBounds(100, 320, 160, 22);
-
-        btn_pesquisar.setText("Pesquisar");
-        btn_pesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pesquisarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_pesquisar);
-        btn_pesquisar.setBounds(450, 50, 110, 23);
-        jPanel1.add(txt_celular);
-        txt_celular.setBounds(410, 200, 160, 22);
+        label_data1.setText("Data:");
+        jPanel1.add(label_data1);
+        label_data1.setBounds(30, 120, 60, 16);
+        jPanel1.add(txt_data1);
+        txt_data1.setBounds(70, 120, 230, 22);
 
         btn_novo.setText("+ Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +134,38 @@ public class Agendamentos extends javax.swing.JFrame {
         btn_editar.setText("Editar");
 
         btn_excluir.setText("Excluir");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Compromissos Agendados"));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Cliente", "Serviço", "Funcionário", "Data", "Horário", "Observação"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         menuCadastro.setText("Cadastro");
 
@@ -239,7 +236,9 @@ public class Agendamentos extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
@@ -256,15 +255,17 @@ public class Agendamentos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6677, Short.MAX_VALUE))
+                .addGap(0, 6632, Short.MAX_VALUE))
         );
 
         pack();
@@ -290,21 +291,9 @@ public class Agendamentos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_novoActionPerformed
 
-    private void btn_pesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pesquisarActionPerformed
+    private void tipoDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDeServicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_pesquisarActionPerformed
-
-    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codigoActionPerformed
-
-    private void txt_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_enderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_enderecoActionPerformed
-
-    private void txt_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cidadeActionPerformed
+    }//GEN-LAST:event_tipoDeServicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,18 +343,18 @@ public class Agendamentos extends javax.swing.JFrame {
     private javax.swing.JButton btn_editar;
     private javax.swing.JButton btn_excluir;
     private javax.swing.JButton btn_novo;
-    private javax.swing.JButton btn_pesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel label_bairro;
-    private javax.swing.JLabel label_celular;
-    private javax.swing.JLabel label_cidade;
-    private javax.swing.JLabel label_codigo;
-    private javax.swing.JLabel label_endereco;
-    private javax.swing.JLabel label_nascimento;
-    private javax.swing.JLabel label_nome;
-    private javax.swing.JLabel label_telefone;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel label_cliente;
+    private javax.swing.JLabel label_data1;
+    private javax.swing.JLabel label_funcionario;
+    private javax.swing.JLabel label_horario;
+    private javax.swing.JLabel label_observacao;
+    private javax.swing.JLabel label_servico;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -378,13 +367,11 @@ public class Agendamentos extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
-    private javax.swing.JTextField txt_bairro;
-    private javax.swing.JTextField txt_celular;
-    private javax.swing.JTextField txt_cidade;
-    private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_endereco;
-    private javax.swing.JTextField txt_nascimento;
-    private javax.swing.JTextField txt_nome;
-    private javax.swing.JTextField txt_telefone;
+    private javax.swing.JComboBox<String> tipoDeServico;
+    private javax.swing.JTextField txt_cliente;
+    private javax.swing.JTextField txt_data1;
+    private javax.swing.JTextField txt_funcionario;
+    private javax.swing.JTextField txt_horario;
+    private javax.swing.JTextField txt_observacao;
     // End of variables declaration//GEN-END:variables
 }
