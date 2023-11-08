@@ -26,9 +26,9 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        pan_header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pan_dados = new javax.swing.JPanel();
         label_nome = new javax.swing.JLabel();
         label_nascimento = new javax.swing.JLabel();
         label_celular = new javax.swing.JLabel();
@@ -42,7 +42,13 @@ public class CadastroUsuarios extends javax.swing.JFrame {
         label_funcao = new javax.swing.JLabel();
         txt_funcao = new javax.swing.JTextField();
         label_nAcesso = new javax.swing.JLabel();
-        txt_nAcesso = new javax.swing.JTextField();
+        label_sobrenome = new javax.swing.JLabel();
+        txt_sobrenome = new javax.swing.JTextField();
+        spin_acesso = new javax.swing.JSpinner();
+        label_cidade = new javax.swing.JLabel();
+        txt_cidade = new javax.swing.JTextField();
+        label_Endereco = new javax.swing.JLabel();
+        txt_endereco = new javax.swing.JTextField();
         btn_novo = new javax.swing.JButton();
         btn_Salvar = new javax.swing.JButton();
         btn_editar = new javax.swing.JButton();
@@ -65,72 +71,84 @@ public class CadastroUsuarios extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel2.setLayout(null);
+        pan_header.setBackground(new java.awt.Color(0, 204, 204));
+        pan_header.setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cadastro de Usuários");
-        jPanel2.add(jLabel1);
+        pan_header.add(jLabel1);
         jLabel1.setBounds(120, 30, 380, 48);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Pessoais"));
-        jPanel1.setLayout(null);
+        pan_dados.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Pessoais"));
+        pan_dados.setLayout(null);
 
-        label_nome.setText("Nome:");
-        jPanel1.add(label_nome);
-        label_nome.setBounds(30, 50, 36, 16);
+        label_nome.setText("*Nome:");
+        pan_dados.add(label_nome);
+        label_nome.setBounds(30, 30, 50, 20);
 
         label_nascimento.setText("Data de Nascimento:");
-        jPanel1.add(label_nascimento);
-        label_nascimento.setBounds(30, 100, 140, 20);
+        pan_dados.add(label_nascimento);
+        label_nascimento.setBounds(260, 70, 120, 20);
 
         label_celular.setText("Celular:");
-        jPanel1.add(label_celular);
-        label_celular.setBounds(360, 100, 40, 20);
+        pan_dados.add(label_celular);
+        label_celular.setBounds(30, 70, 50, 20);
 
-        label_senha.setText("Senha:");
-        jPanel1.add(label_senha);
-        label_senha.setBounds(310, 220, 60, 20);
+        label_senha.setText("*Senha:");
+        pan_dados.add(label_senha);
+        label_senha.setBounds(30, 240, 40, 20);
 
-        label_email.setText("E-mail:");
-        jPanel1.add(label_email);
-        label_email.setBounds(20, 220, 37, 20);
-        jPanel1.add(txt_nome);
-        txt_nome.setBounds(80, 50, 490, 22);
-        jPanel1.add(txt_nascimento);
-        txt_nascimento.setBounds(150, 100, 180, 22);
+        label_email.setText("*E-mail:");
+        pan_dados.add(label_email);
+        label_email.setBounds(30, 200, 50, 20);
+        pan_dados.add(txt_nome);
+        txt_nome.setBounds(80, 30, 130, 22);
+        pan_dados.add(txt_nascimento);
+        txt_nascimento.setBounds(380, 70, 130, 22);
 
         txt_senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_senhaActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_senha);
-        txt_senha.setBounds(350, 220, 220, 22);
-        jPanel1.add(txt_email);
-        txt_email.setBounds(70, 220, 180, 22);
-        jPanel1.add(txt_celular);
-        txt_celular.setBounds(410, 100, 160, 22);
+        pan_dados.add(txt_senha);
+        txt_senha.setBounds(80, 240, 180, 22);
+        pan_dados.add(txt_email);
+        txt_email.setBounds(80, 200, 290, 22);
+        pan_dados.add(txt_celular);
+        txt_celular.setBounds(80, 70, 130, 22);
 
-        label_funcao.setText("Função:");
-        jPanel1.add(label_funcao);
-        label_funcao.setBounds(30, 150, 50, 16);
-        jPanel1.add(txt_funcao);
-        txt_funcao.setBounds(80, 150, 180, 22);
+        label_funcao.setText("*Função:");
+        pan_dados.add(label_funcao);
+        label_funcao.setBounds(30, 160, 50, 20);
+        pan_dados.add(txt_funcao);
+        txt_funcao.setBounds(80, 160, 110, 22);
 
-        label_nAcesso.setText("Nível de Acesso:");
-        jPanel1.add(label_nAcesso);
-        label_nAcesso.setBounds(270, 150, 90, 16);
+        label_nAcesso.setText("*Nível de Acesso:");
+        pan_dados.add(label_nAcesso);
+        label_nAcesso.setBounds(20, 280, 100, 20);
 
-        txt_nAcesso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nAcessoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_nAcesso);
-        txt_nAcesso.setBounds(360, 150, 210, 22);
+        label_sobrenome.setText("Sobrenome:");
+        pan_dados.add(label_sobrenome);
+        label_sobrenome.setBounds(260, 30, 80, 20);
+        pan_dados.add(txt_sobrenome);
+        txt_sobrenome.setBounds(330, 30, 280, 22);
+        pan_dados.add(spin_acesso);
+        spin_acesso.setBounds(120, 280, 64, 22);
+
+        label_cidade.setText("Cidade:");
+        pan_dados.add(label_cidade);
+        label_cidade.setBounds(30, 110, 50, 20);
+        pan_dados.add(txt_cidade);
+        txt_cidade.setBounds(80, 110, 130, 22);
+
+        label_Endereco.setText("Endereço:");
+        pan_dados.add(label_Endereco);
+        label_Endereco.setBounds(260, 110, 60, 20);
+        pan_dados.add(txt_endereco);
+        txt_endereco.setBounds(320, 110, 290, 22);
 
         btn_novo.setText("+ Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -211,10 +229,10 @@ public class CadastroUsuarios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pan_header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                .addComponent(pan_dados, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -230,10 +248,10 @@ public class CadastroUsuarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addComponent(pan_header, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pan_dados, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,10 +286,6 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_senhaActionPerformed
-
-    private void txt_nAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nAcessoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nAcessoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,15 +336,16 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     private javax.swing.JButton btn_excluir;
     private javax.swing.JButton btn_novo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel label_Endereco;
     private javax.swing.JLabel label_celular;
+    private javax.swing.JLabel label_cidade;
     private javax.swing.JLabel label_email;
     private javax.swing.JLabel label_funcao;
     private javax.swing.JLabel label_nAcesso;
     private javax.swing.JLabel label_nascimento;
     private javax.swing.JLabel label_nome;
     private javax.swing.JLabel label_senha;
+    private javax.swing.JLabel label_sobrenome;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -343,12 +358,17 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
+    private javax.swing.JPanel pan_dados;
+    private javax.swing.JPanel pan_header;
+    private javax.swing.JSpinner spin_acesso;
     private javax.swing.JTextField txt_celular;
+    private javax.swing.JTextField txt_cidade;
     private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_endereco;
     private javax.swing.JTextField txt_funcao;
-    private javax.swing.JTextField txt_nAcesso;
     private javax.swing.JTextField txt_nascimento;
     private javax.swing.JTextField txt_nome;
     private javax.swing.JTextField txt_senha;
+    private javax.swing.JTextField txt_sobrenome;
     // End of variables declaration//GEN-END:variables
 }
