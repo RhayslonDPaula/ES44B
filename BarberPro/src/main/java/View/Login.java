@@ -4,17 +4,24 @@
  */
 package View;
 
+import Controller.LoginController;
+
 /**
  *
  * @author hyuug
  */
 public class Login extends javax.swing.JFrame {
 
+    private final LoginController controller;
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        controller = new LoginController(this);
+        // instanciei o controller para que eu possa utilizar ao longo da classe.
+        // O this informa que a view passada eh essa mesma.
     }
 
     /**
@@ -35,10 +42,10 @@ public class Login extends javax.swing.JFrame {
         pan_head = new javax.swing.JPanel();
         lab_login = new javax.swing.JLabel();
         pan_body = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        bt_entrar = new javax.swing.JButton();
-        bt_sair = new javax.swing.JButton();
+        textPass = new javax.swing.JPasswordField();
+        textEmail = new javax.swing.JTextField();
+        btEntrar = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -48,7 +55,6 @@ public class Login extends javax.swing.JFrame {
         setTitle("BarberPro Manager - Login");
         setMinimumSize(new java.awt.Dimension(415, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(415, 600));
         setResizable(false);
 
         pan_principal.setBackground(new java.awt.Color(255, 255, 255));
@@ -79,29 +85,40 @@ public class Login extends javax.swing.JFrame {
 
         pan_body.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        textPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                textPassActionPerformed(evt);
             }
         });
 
-        bt_entrar.setBackground(new java.awt.Color(0, 51, 102));
-        bt_entrar.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
-        bt_entrar.setForeground(new java.awt.Color(255, 255, 255));
-        bt_entrar.setText("ENTRAR");
-        bt_entrar.addActionListener(new java.awt.event.ActionListener() {
+        textEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_entrarActionPerformed(evt);
+                textEmailActionPerformed(evt);
             }
         });
 
-        bt_sair.setBackground(new java.awt.Color(249, 103, 103));
-        bt_sair.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
-        bt_sair.setForeground(new java.awt.Color(255, 255, 255));
-        bt_sair.setText("SAIR");
-        bt_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+        btEntrar.setBackground(new java.awt.Color(0, 51, 102));
+        btEntrar.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        btEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btEntrar.setText("ENTRAR");
+        btEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_sairMouseClicked(evt);
+                btEntrarMouseClicked(evt);
+            }
+        });
+        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEntrarActionPerformed(evt);
+            }
+        });
+
+        btSair.setBackground(new java.awt.Color(249, 103, 103));
+        btSair.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
+        btSair.setForeground(new java.awt.Color(255, 255, 255));
+        btSair.setText("SAIR");
+        btSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btSairMouseClicked(evt);
             }
         });
 
@@ -110,31 +127,31 @@ public class Login extends javax.swing.JFrame {
         pan_bodyLayout.setHorizontalGroup(
             pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pan_bodyLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addGroup(pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bt_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bt_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
+                .addGap(63, 63, 63))
         );
         pan_bodyLayout.setVerticalGroup(
             pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE)
+                .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(bt_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(bt_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97))
         );
 
         javax.swing.GroupLayout pan_principalLayout = new javax.swing.GroupLayout(pan_principal);
@@ -168,17 +185,26 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarActionPerformed
+    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bt_entrarActionPerformed
+    }//GEN-LAST:event_btEntrarActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void textPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_textPassActionPerformed
 
-    private void bt_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_sairMouseClicked
+    private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
         dispose();
-    }//GEN-LAST:event_bt_sairMouseClicked
+    }//GEN-LAST:event_btSairMouseClicked
+
+    private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked
+        controller.logon(textEmail.getText(), textPass.getText());
+        // chamei o metodo logon do controlador, passando os textos das caixas.
+    }//GEN-LAST:event_btEntrarMouseClicked
+
+    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,18 +242,18 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_entrar;
-    private javax.swing.JButton bt_sair;
+    private javax.swing.JButton btEntrar;
+    private javax.swing.JButton btSair;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFileChooser jFileChooser2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lab_login;
     private javax.swing.JPanel pan_body;
     private javax.swing.JPanel pan_head;
     private javax.swing.JPanel pan_principal;
+    private javax.swing.JTextField textEmail;
     private java.awt.TextField textField1;
+    private javax.swing.JPasswordField textPass;
     // End of variables declaration//GEN-END:variables
 }
