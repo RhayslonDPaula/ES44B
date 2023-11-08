@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS funcionario(
     fun_nome VARCHAR(45) NOT NULL,
     fun_cargo VARCHAR(15) NOT NULL,
     fun_nivelAcesso INT NOT NULL,
+    fun_email VARCHAR(55),
     fun_senha VARCHAR(15),
     fun_nascimento DATE,
     fun_telefone1 VARCHAR(11),
@@ -107,17 +108,20 @@ INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_senha, fun_nas
 fun_cidade)
 	VALUES('admin', 'admin', 3, 'admin', '2023-11-07', 'Cornélio Procópio');
 
-INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_senha, fun_nascimento, fun_telefone1, 
-	fun_cidade, fun_endereco)
-	VALUES('Paulo', 'admin', 3, 'paulindo', '2001-12-07', '43912345678', 'Cornélio Procópio', 'Rua 1, 99');
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, 
+fun_nascimento, fun_telefone1, fun_cidade, fun_endereco)
+	VALUES('Paulo', 'admin', 3, 'paulo@gmail.com', 'paulindo', '2001-12-07', '43912345678', 
+		'Cornélio Procópio', 'Rua 1, 99');
 
-INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_senha, fun_nascimento, fun_telefone1, 
-	fun_cidade, fun_endereco)
-	VALUES('Emma', 'admin', 3, 'antonia', '1998-01-01', '43912345678', 'Cornélio Procópio', 'Rua 2, 100');
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, 
+fun_nascimento, fun_telefone1, fun_cidade, fun_endereco)
+	VALUES('Emma', 'admin', 3, 'emma@gmail.com', 'antonia', '1998-01-01', '43912345678', 
+		'Cornélio Procópio', 'Rua 2, 100');
 
-INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_senha, fun_nascimento, fun_telefone1, 
-	fun_cidade, fun_endereco)
-	VALUES('Rhayslon', 'admin', 3, 'Rhaybarba', '1994-01-01', '43912345678', 'Andirá', 'Rua 3, 101');
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, 
+fun_nascimento, fun_telefone1, fun_cidade, fun_endereco)
+	VALUES('Rhayslon', 'admin', 3, 'rhayslon@gmail.com', 'Rhaybarba', '1994-01-01', 
+		'43912345678', 'Andirá', 'Rua 3, 101');
 --
 
 INSERT INTO produtos(pro_nome, pro_marca, pro_categoria, pro_quantidade, pro_preco, 
