@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairMouseClicked
 
     private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked
-        controller.logon(textEmail.getText(), textPass.getText());
+        controller.login(textEmail.getText(), textPass.getText());
         // chamei o metodo logon do controlador, passando os textos das caixas.
     }//GEN-LAST:event_btEntrarMouseClicked
 

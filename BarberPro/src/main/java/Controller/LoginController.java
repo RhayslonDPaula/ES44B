@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controller;
 import View.Login;
+import dao.ConnectionDAO;
 /**
  *
  * @author paulo
@@ -11,12 +8,13 @@ import View.Login;
 public class LoginController {
 
     private final Login view;
+    private final ConnectionDAO 
     
     public LoginController(Login view){
         this.view = view;
     }
     
-    public void logon(String email, String pass){
+    public void login(String email, String pass){
         // if the same user of view Login exists on Database -> Log On Menu
         // else print error
      
