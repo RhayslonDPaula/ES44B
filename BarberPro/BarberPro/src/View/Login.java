@@ -42,8 +42,8 @@ public class Login extends javax.swing.JFrame {
         pan_head = new javax.swing.JPanel();
         lab_login = new javax.swing.JLabel();
         pan_body = new javax.swing.JPanel();
-        textPass = new javax.swing.JPasswordField();
-        textEmail = new javax.swing.JTextField();
+        txt_email = new javax.swing.JPasswordField();
+        txt_pass = new javax.swing.JTextField();
         btEntrar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
 
@@ -52,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         textField1.setText("textField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("BarberPro Manager - Login");
+        setTitle("Login");
         setMinimumSize(new java.awt.Dimension(415, 500));
         setUndecorated(true);
         setResizable(false);
@@ -85,15 +85,15 @@ public class Login extends javax.swing.JFrame {
 
         pan_body.setBackground(new java.awt.Color(255, 255, 255));
 
-        textPass.addActionListener(new java.awt.event.ActionListener() {
+        txt_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textPassActionPerformed(evt);
+                txt_emailActionPerformed(evt);
             }
         });
 
-        textEmail.addActionListener(new java.awt.event.ActionListener() {
+        txt_pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textEmailActionPerformed(evt);
+                txt_passActionPerformed(evt);
             }
         });
 
@@ -130,8 +130,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pan_bodyLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addGroup(pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -144,9 +144,9 @@ public class Login extends javax.swing.JFrame {
             pan_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_bodyLayout.createSequentialGroup()
                 .addContainerGap(172, Short.MAX_VALUE)
-                .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -186,30 +186,32 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
-        // TODO add your handling code here:
+        // passo o texto da caixa de email e pass;
+        controller.login(txt_email.getText(), txt_pass.getText());
+        
     }//GEN-LAST:event_btEntrarActionPerformed
 
-    private void textPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPassActionPerformed
+    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textPassActionPerformed
+    }//GEN-LAST:event_txt_emailActionPerformed
 
     private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
         dispose();
     }//GEN-LAST:event_btSairMouseClicked
 
     private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked
-        controller.login(textEmail.getText(), textPass.getText());
+        controller.login(txt_pass.getText(), txt_email.getText());
         // chamei o metodo logon do controlador, passando os textos das caixas.
     }//GEN-LAST:event_btEntrarMouseClicked
 
-    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
+    private void txt_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textEmailActionPerformed
+    }//GEN-LAST:event_txt_passActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -252,8 +254,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel pan_body;
     private javax.swing.JPanel pan_head;
     private javax.swing.JPanel pan_principal;
-    private javax.swing.JTextField textEmail;
     private java.awt.TextField textField1;
-    private javax.swing.JPasswordField textPass;
+    private javax.swing.JPasswordField txt_email;
+    private javax.swing.JTextField txt_pass;
     // End of variables declaration//GEN-END:variables
 }

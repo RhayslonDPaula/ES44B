@@ -25,7 +25,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="BarberPro Manager - Login"/>
+    <Property name="title" type="java.lang.String" value="Login"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[415, 500]"/>
     </Property>
@@ -145,8 +145,8 @@
                       <EmptySpace pref="65" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="textEmail" min="-2" pref="300" max="-2" attributes="0"/>
-                              <Component id="textPass" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="txt_pass" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="txt_email" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
@@ -165,9 +165,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="172" max="32767" attributes="0"/>
-                      <Component id="textEmail" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="txt_pass" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="textPass" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="txt_email" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btEntrar" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -178,14 +178,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JPasswordField" name="textPass">
+            <Component class="javax.swing.JPasswordField" name="txt_email">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textPassActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_emailActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="textEmail">
+            <Component class="javax.swing.JTextField" name="txt_pass">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textEmailActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_passActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btEntrar">

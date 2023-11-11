@@ -23,3 +23,6 @@
 hs_err_pid*
 replay_pid*
 /BarberPro/target/
+/BarberPro/BarberPro/nbproject/private/
+/BarberPro/BarberPro/build/
+/BarberPro/BarberPro/dist/
