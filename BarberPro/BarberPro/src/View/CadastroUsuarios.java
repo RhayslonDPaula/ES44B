@@ -10,13 +10,21 @@ package View;
  */
 public class CadastroUsuarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public CadastroUsuarios() {
+    private static CadastroUsuarios cadUserSingleton;
+    
+    // private para restirngir o uso do construtor
+    private CadastroUsuarios() {
         initComponents();
     }
-
+    
+    // metodo singleton
+    public static CadastroUsuarios getCadastroUsuarios(){
+        if(cadUserSingleton == null){
+            cadUserSingleton = new CadastroUsuarios();
+        }
+        return cadUserSingleton;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,7 +75,7 @@ public class CadastroUsuarios extends javax.swing.JFrame {
         menutItemGerarRelatorio = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         setResizable(false);
 
@@ -371,4 +379,5 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField txt_senha;
     private javax.swing.JTextField txt_sobrenome;
     // End of variables declaration//GEN-END:variables
+
 }

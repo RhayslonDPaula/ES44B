@@ -10,11 +10,20 @@ package View;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public MenuPrincipal() {
+    // var para receber a instancia
+    private static MenuPrincipal MenuSingleton;
+    
+    // private para restringir o uso do construtor
+    private MenuPrincipal() {
         initComponents();
+    }
+    
+    // Singleton para evitar duas múltiplas instâncias
+    public static MenuPrincipal getMenuPrincipal(){
+        if(MenuSingleton == null){
+            MenuSingleton = new MenuPrincipal();
+        }
+        return MenuSingleton;
     }
 
     /**
@@ -26,10 +35,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        lab_Compromissos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        tab_Compromissos = new javax.swing.JTable();
+        img_Fundo = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         menutItemClientes = new javax.swing.JMenuItem();
@@ -47,11 +56,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Compromissos do dia");
+        lab_Compromissos.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
+        lab_Compromissos.setForeground(new java.awt.Color(255, 255, 255));
+        lab_Compromissos.setText("Compromissos do dia");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tab_Compromissos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -62,35 +71,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 "Cliente", "Serviço", "Data", "Horário", "Barbeiro"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tab_Compromissos);
 
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Compromissos do dia (1).png"))); // NOI18N
+        img_Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Compromissos do dia (1).png"))); // NOI18N
 
         menuCadastro.setText("Cadastro");
+        
 
         menutItemClientes.setText("Clientes");
-        menutItemClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menutItemClientesActionPerformed(evt);
-            }
-        });
+        
+        
         menuCadastro.add(menutItemClientes);
 
         menutItemServicos.setText("Serviços");
-        menutItemServicos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menutItemServicosActionPerformed(evt);
-            }
-        });
+        
         menuCadastro.add(menutItemServicos);
 
         menutItemUsuarios.setText("Usuários");
-        menutItemUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menutItemUsuariosActionPerformed(evt);
-            }
-        });
+        
+        
         menuCadastro.add(menutItemUsuarios);
 
         BarraMenu.add(menuCadastro);
@@ -105,11 +104,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuVendas.setText("Vendas");
 
         menutItemVenderProdutos.setText("Vender Produtos");
-        menutItemVenderProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menutItemVenderProdutosActionPerformed(evt);
-            }
-        });
+        
         menuVendas.add(menutItemVenderProdutos);
 
         menutItemEstoque.setText("Estoque");
@@ -125,28 +120,50 @@ public class MenuPrincipal extends javax.swing.JFrame {
         BarraMenu.add(menuRelatorio);
 
         menuSair.setText("Sair");
+        
         BarraMenu.add(menuSair);
 
         setJMenuBar(BarraMenu);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(640, 640, 640)
+                .addComponent(lab_Compromissos))
+            .addComponent(img_Fundo)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(440, 440, 440)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(lab_Compromissos))
+            .addComponent(img_Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menutItemClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menutItemClientesActionPerformed
+    private void menutItemClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menutItemClientesMouseClicked
+        
+        CadastroClientes.getCadastroClientes().setVisible(true);
+        
+    }//GEN-LAST:event_menutItemClientesMouseClicked
 
-    private void menutItemServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemServicosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menutItemServicosActionPerformed
+    private void menutItemUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menutItemUsuariosMouseClicked
+        CadastroUsuarios.getCadastroUsuarios().setVisible(true);
+    }//GEN-LAST:event_menutItemUsuariosMouseClicked
 
-    private void menutItemVenderProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemVenderProdutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menutItemVenderProdutosActionPerformed
-
-    private void menutItemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutItemUsuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menutItemUsuariosActionPerformed
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        dispose();
+    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,10 +203,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel img_Fundo;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lab_Compromissos;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -202,5 +218,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
+    private javax.swing.JTable tab_Compromissos;
     // End of variables declaration//GEN-END:variables
 }

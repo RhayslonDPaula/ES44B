@@ -13,7 +13,7 @@ import Controller.LoginController;
 public class BarberPro {
     
     public static void main(String args[]){
-        Login log = new Login();
+        Login log = Login.getLogin();
         LoginController controller = new LoginController(log);
         
         controller.getLogin(); // Seto a View Login como visible

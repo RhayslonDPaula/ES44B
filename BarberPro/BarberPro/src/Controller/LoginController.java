@@ -1,5 +1,6 @@
 package Controller;
 import View.Login;
+import View.MenuPrincipal;
 import dao.ConnectionDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,7 @@ public class LoginController {
 
     private final Login login;
     private final ConnectionDAO connection = new ConnectionDAO();
+    private final MenuPrincipal menu = null;
     
     public LoginController(Login login){
         this.login = login;
@@ -25,6 +27,9 @@ public class LoginController {
         
         // Só permitir a entrada se o email e senha existir no banco
         
+        menu.getMenuPrincipal().setVisible(true);
+        
+        /* CONEXAO QUE NÃO DEU CERTO
         // Objeto do tipo Connection para receber a conexao.
         Connection conn;
         conn = connection.getConnection(); // recebe a conexo
@@ -42,6 +47,7 @@ public class LoginController {
         } catch (SQLException e){
             JOptionPane.showMessageDialog(login, "Deu ruuim");
         }
+        */
     }
 
     public void getLogin() {

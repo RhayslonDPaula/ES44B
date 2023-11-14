@@ -10,11 +10,18 @@ package View;
  */
 public class CadastroServico extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public CadastroServico() {
+    private static CadastroServico cadServSingleton;
+    
+    // private para restringir o uso do construtor
+    private CadastroServico() {
         initComponents();
+    }
+        
+    public static CadastroServico getCadastroServico(){
+        if(cadServSingleton == null){
+            cadServSingleton = new CadastroServico();
+        }
+        return cadServSingleton; // retorna instancia
     }
 
     /**
@@ -55,7 +62,7 @@ public class CadastroServico extends javax.swing.JFrame {
         menutItemGerarRelatorio = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         setResizable(false);
 
@@ -74,27 +81,27 @@ public class CadastroServico extends javax.swing.JFrame {
 
         label_servico.setText("Serviço:");
         jPanel1.add(label_servico);
-        label_servico.setBounds(30, 40, 50, 16);
+        label_servico.setBounds(30, 40, 50, 20);
 
         label_id.setText("ID:");
         jPanel1.add(label_id);
-        label_id.setBounds(30, 90, 120, 20);
+        label_id.setBounds(60, 90, 30, 20);
 
         label_preco.setText("Preço:");
         jPanel1.add(label_preco);
-        label_preco.setBounds(320, 90, 40, 20);
+        label_preco.setBounds(340, 90, 50, 20);
         jPanel1.add(txt_servico);
         txt_servico.setBounds(80, 40, 490, 22);
         jPanel1.add(txt_id);
-        txt_id.setBounds(50, 90, 220, 22);
+        txt_id.setBounds(80, 90, 180, 22);
         jPanel1.add(txt_preco);
         txt_preco.setBounds(380, 90, 190, 22);
 
-        label_descricao.setText("Descrição:");
+        label_descricao.setText("Categoria:");
         jPanel1.add(label_descricao);
-        label_descricao.setBounds(30, 140, 60, 16);
+        label_descricao.setBounds(20, 140, 60, 20);
         jPanel1.add(txt_descricao);
-        txt_descricao.setBounds(90, 140, 480, 22);
+        txt_descricao.setBounds(80, 140, 180, 22);
 
         btn_novo.setText("+ Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {

@@ -10,11 +10,20 @@ package View;
  */
 public class CadastroClientes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public CadastroClientes() {
+    // var singleton para receber a instância;
+    private static CadastroClientes cadCliSingleton;
+    
+    //private para restringir o uso do construtor.
+    private CadastroClientes() {
         initComponents();
+    }
+    
+    // Singleton para evitar múltiplas instâncias
+    public static CadastroClientes getCadastroClientes(){
+        if(cadCliSingleton == null){
+            cadCliSingleton = new CadastroClientes();
+        }
+        return cadCliSingleton;
     }
 
     /**
@@ -32,18 +41,14 @@ public class CadastroClientes extends javax.swing.JFrame {
         label_codigo = new javax.swing.JLabel();
         label_nome = new javax.swing.JLabel();
         label_nascimento = new javax.swing.JLabel();
-        label_telefone = new javax.swing.JLabel();
         label_celular = new javax.swing.JLabel();
         label_cidade = new javax.swing.JLabel();
-        label_bairro = new javax.swing.JLabel();
         label_endereco = new javax.swing.JLabel();
         txt_nome = new javax.swing.JTextField();
-        txt_telefone = new javax.swing.JTextField();
         txt_codigo = new javax.swing.JTextField();
         txt_endereco = new javax.swing.JTextField();
         txt_nascimento = new javax.swing.JTextField();
         txt_cidade = new javax.swing.JTextField();
-        txt_bairro = new javax.swing.JTextField();
         btn_pesquisar = new javax.swing.JButton();
         txt_celular = new javax.swing.JTextField();
         btn_novo = new javax.swing.JButton();
@@ -64,8 +69,9 @@ public class CadastroClientes extends javax.swing.JFrame {
         menutItemGerarRelatorio = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
+        setMinimumSize(new java.awt.Dimension(650, 700));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
@@ -84,39 +90,29 @@ public class CadastroClientes extends javax.swing.JFrame {
 
         label_codigo.setText("Código:");
         jPanel1.add(label_codigo);
-        label_codigo.setBounds(30, 50, 60, 16);
+        label_codigo.setBounds(80, 50, 60, 20);
 
         label_nome.setText("Nome:");
         jPanel1.add(label_nome);
-        label_nome.setBounds(30, 100, 35, 16);
+        label_nome.setBounds(90, 100, 60, 20);
 
         label_nascimento.setText("Data de Nascimento:");
         jPanel1.add(label_nascimento);
-        label_nascimento.setBounds(30, 150, 140, 20);
-
-        label_telefone.setText("Telefone:");
-        jPanel1.add(label_telefone);
-        label_telefone.setBounds(30, 200, 60, 16);
+        label_nascimento.setBounds(20, 150, 140, 20);
 
         label_celular.setText("Celular:");
         jPanel1.add(label_celular);
-        label_celular.setBounds(360, 200, 40, 16);
+        label_celular.setBounds(90, 210, 70, 20);
 
         label_cidade.setText("Cidade:");
         jPanel1.add(label_cidade);
-        label_cidade.setBounds(320, 320, 60, 16);
-
-        label_bairro.setText("Bairro:");
-        jPanel1.add(label_bairro);
-        label_bairro.setBounds(40, 320, 37, 16);
+        label_cidade.setBounds(90, 320, 60, 20);
 
         label_endereco.setText("Endereço:");
         jPanel1.add(label_endereco);
-        label_endereco.setBounds(40, 270, 70, 16);
+        label_endereco.setBounds(80, 270, 70, 20);
         jPanel1.add(txt_nome);
-        txt_nome.setBounds(80, 100, 480, 22);
-        jPanel1.add(txt_telefone);
-        txt_telefone.setBounds(100, 200, 230, 22);
+        txt_nome.setBounds(140, 100, 300, 22);
 
         txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +120,7 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txt_codigo);
-        txt_codigo.setBounds(90, 50, 220, 22);
+        txt_codigo.setBounds(140, 50, 130, 22);
 
         txt_endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,9 +128,9 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txt_endereco);
-        txt_endereco.setBounds(100, 270, 470, 22);
+        txt_endereco.setBounds(140, 270, 300, 22);
         jPanel1.add(txt_nascimento);
-        txt_nascimento.setBounds(150, 150, 250, 22);
+        txt_nascimento.setBounds(140, 150, 130, 22);
 
         txt_cidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,9 +138,7 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txt_cidade);
-        txt_cidade.setBounds(370, 320, 200, 22);
-        jPanel1.add(txt_bairro);
-        txt_bairro.setBounds(100, 320, 160, 22);
+        txt_cidade.setBounds(140, 320, 130, 22);
 
         btn_pesquisar.setText("Pesquisar");
         btn_pesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,9 +147,9 @@ public class CadastroClientes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_pesquisar);
-        btn_pesquisar.setBounds(450, 50, 110, 23);
+        btn_pesquisar.setBounds(330, 50, 110, 23);
         jPanel1.add(txt_celular);
-        txt_celular.setBounds(410, 200, 160, 22);
+        txt_celular.setBounds(140, 210, 130, 22);
 
         btn_novo.setText("+ Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -239,10 +233,10 @@ public class CadastroClientes extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addGap(66, 66, 66)
                 .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,7 +244,7 @@ public class CadastroClientes extends javax.swing.JFrame {
                 .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,13 +252,13 @@ public class CadastroClientes extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6677, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -354,14 +348,12 @@ public class CadastroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel label_bairro;
     private javax.swing.JLabel label_celular;
     private javax.swing.JLabel label_cidade;
     private javax.swing.JLabel label_codigo;
     private javax.swing.JLabel label_endereco;
     private javax.swing.JLabel label_nascimento;
     private javax.swing.JLabel label_nome;
-    private javax.swing.JLabel label_telefone;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSair;
@@ -374,13 +366,11 @@ public class CadastroClientes extends javax.swing.JFrame {
     private javax.swing.JMenuItem menutItemServicos;
     private javax.swing.JMenuItem menutItemUsuarios;
     private javax.swing.JMenuItem menutItemVenderProdutos;
-    private javax.swing.JTextField txt_bairro;
     private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_cidade;
     private javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_endereco;
     private javax.swing.JTextField txt_nascimento;
     private javax.swing.JTextField txt_nome;
-    private javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
 }

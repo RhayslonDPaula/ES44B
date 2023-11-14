@@ -14,12 +14,13 @@ public class ConnectionDAO {
     }
     
     public static Connection conn = null;
+    
     public static Connection getConnection(){
         try {
             if(conn == null){
-                Class.forName("com.mysql.jdbc.Driver"); // registra driver
+                
                 // jbdc:mysql:// é o driver de conexão. Guardamos o endereco do banco e o user
-                String url = "jbdc:mysql://localhost:3306/barber?user=root&password";
+                String url = "jbdc:mysql://localhost:3306/barber?user=root&password=Playdark@0712";
                 conn = DriverManager.getConnection(url);
             }else{
                 return conn; // Se a conexao ja tiver sido criado.
