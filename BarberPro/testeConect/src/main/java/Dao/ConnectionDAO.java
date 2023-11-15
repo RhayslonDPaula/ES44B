@@ -21,12 +21,13 @@ public class ConnectionDAO {
         try {
             if(conn == null){
                 
-                conn = DriverManager.getConnection("jdbc:postgresql//localhost:5433/teste");
+                // Conexao para PostgreSql
+                //conn = DriverManager.getConnection("jdbc:postgresql//localhost:5433/teste");
                 
-                /* Conexao para MySQL
+                // Conexao para MySQL
                 // jbdc:mysql:// é o driver de conexão. Guardamos o endereco do banco e o user
                 conn = DriverManager.getConnection("jbdc:mysql://localhost:3306/barber", "root", "Playdark@0712");
-                */
+                
             }else{
                 return conn; // Se a conexao ja tiver sido criado.
             }
