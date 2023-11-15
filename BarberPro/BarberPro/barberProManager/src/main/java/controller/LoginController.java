@@ -27,9 +27,9 @@ public class LoginController {
         
         // Só permitir a entrada se o email e senha existir no banco
         
-        menu.getMenuPrincipal().setVisible(true);
+        // menu.getMenuPrincipal().setVisible(true);
         
-        /* CONEXAO QUE NÃO DEU CERTO
+        // /* CONEXAO QUE NÃO DEU CERTO
         // Objeto do tipo Connection para receber a conexao.
         Connection conn;
         conn = connection.getConnection(); // recebe a conexo
@@ -47,7 +47,7 @@ public class LoginController {
         } catch (SQLException e){
             JOptionPane.showMessageDialog(login, "Deu ruuim");
         }
-        */
+        // */
     }
 
     public void getLogin() {

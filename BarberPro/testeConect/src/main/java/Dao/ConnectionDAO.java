@@ -1,16 +1,16 @@
-package dao;
+package Dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
  * Classe para criar a conexão com o banco de dados
  * @author paulo
  */
-public class Conexao {
+public class ConnectionDAO {
     
-    public Conexao(){
+    public ConnectionDAO(){
         
     }
     
@@ -19,10 +19,9 @@ public class Conexao {
     public static Connection getConnection(){
         try {
             if(conn == null){
-                
+                Class.forName("com.mysql.jdbc.Driver"); /* Aqui registra */
                 // jbdc:mysql:// é o driver de conexão. Guardamos o endereco do banco e o user
-                String url = "jbdc:mysql://localhost:3306/barber?user=root&password=Playdark@0712";
-                conn = DriverManager.getConnection(url);
+                conn = DriverManager.getConnection("jbdc:mysql://localhost:3306/barber", "root", "Playdark@0712");
             }else{
                 return conn; // Se a conexao ja tiver sido criado.
             }
@@ -30,10 +29,6 @@ public class Conexao {
             JOptionPane.showMessageDialog(null, "ConexaoDAO " + e.getMessage());
         }
         return conn;
-    }
-
-    public PreparedStatement prepareStatement(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

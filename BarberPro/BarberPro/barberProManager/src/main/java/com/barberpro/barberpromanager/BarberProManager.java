@@ -1,16 +1,17 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package barberpro;
-import View.Login;
+
+package com.barberpro.barberpromanager;
+
 import Controller.LoginController;
+import View.Login;
 
 /**
  *
  * @author paulo
  */
-public class BarberPro {
+public class BarberProManager {
     
     public static void main(String args[]){
         Login log = Login.getLogin();
@@ -20,3 +21,4 @@ public class BarberPro {
         
     }
 }
+
