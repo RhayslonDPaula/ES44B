@@ -203,7 +203,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_emailActionPerformed
 
     private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_btSairMouseClicked
 
     private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked

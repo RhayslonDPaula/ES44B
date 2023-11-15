@@ -1,29 +1,36 @@
-
- // Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- // Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
-
 package View;
+
+import java.awt.BorderLayout;
+import javax.swing.JScrollPane;
 
 /**
  *
- * @author hyuug
+ * @author paulo
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    // var para receber a instancia
-    private static MenuPrincipal MenuSingleton;
+    private static MenuPrincipal menuPrinSingleton;
     
-    // private para restringir o uso do construtor
     private MenuPrincipal() {
         initComponents();
+        
+        /* Tentativa Falha de COlocar imagem e tabela
+        
+        ImagePanel imagePanel = new ImagePanel("C:/Users/paulo/Documents/MyProjects/ES44B/BarberPro/BarberPro/src/Compromissos do dia.png");
+        
+        // Defina o ImagePanel como o conteúdo do JFrame
+        this.setContentPane(imagePanel);
+        
+        imagePanel.setLayout(new BorderLayout());
+        imagePanel.add(new JScrollPane(tab_Horarios), BorderLayout.CENTER);
+        */
     }
     
-    // Singleton para evitar duas múltiplas instâncias
     public static MenuPrincipal getMenuPrincipal(){
-        if(MenuSingleton == null){
-            MenuSingleton = new MenuPrincipal();
+        if(menuPrinSingleton == null){
+            menuPrinSingleton = new MenuPrincipal();
         }
-        return MenuSingleton;
+        return menuPrinSingleton;
     }
 
     /**
@@ -35,32 +42,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lab_Compromissos = new javax.swing.JLabel();
+        pan_fundo = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tab_Compromissos = new javax.swing.JTable();
-        img_Fundo = new javax.swing.JLabel();
-        BarraMenu = new javax.swing.JMenuBar();
+        tab_Horarios = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
-        menutItemClientes = new javax.swing.JMenuItem();
-        menutItemServicos = new javax.swing.JMenuItem();
-        menutItemUsuarios = new javax.swing.JMenuItem();
+        menuItemCliente = new javax.swing.JMenuItem();
+        menuItemUsuario = new javax.swing.JMenuItem();
+        menuItemServico = new javax.swing.JMenuItem();
         menuServicos = new javax.swing.JMenu();
-        menutItemAgendamento = new javax.swing.JMenuItem();
+        menuItemAgendamento = new javax.swing.JMenuItem();
         menuVendas = new javax.swing.JMenu();
-        menutItemVenderProdutos = new javax.swing.JMenuItem();
-        menutItemEstoque = new javax.swing.JMenuItem();
-        menuRelatorio = new javax.swing.JMenu();
-        menutItemGerarRelatorio = new javax.swing.JMenuItem();
+        menuItemVender = new javax.swing.JMenuItem();
+        menuItemEstoque = new javax.swing.JMenuItem();
+        menuRelatorios = new javax.swing.JMenu();
+        menuItemRelatorio = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 823));
 
-        lab_Compromissos.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
-        lab_Compromissos.setForeground(new java.awt.Color(255, 255, 255));
-        lab_Compromissos.setText("Compromissos do dia");
+        pan_fundo.setOpaque(false);
 
-        tab_Compromissos.setModel(new javax.swing.table.DefaultTableModel(
+        jScrollPane1.setOpaque(false);
+
+        tab_Horarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -68,102 +74,84 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Cliente", "Serviço", "Data", "Horário", "Barbeiro"
+                "Cliente", "Servico", "Data", "Horário", "Barbeiro"
             }
         ));
-        jScrollPane1.setViewportView(tab_Compromissos);
+        tab_Horarios.setOpaque(false);
+        jScrollPane1.setViewportView(tab_Horarios);
 
-        img_Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Compromissos do dia (1).png"))); // NOI18N
+        javax.swing.GroupLayout pan_fundoLayout = new javax.swing.GroupLayout(pan_fundo);
+        pan_fundo.setLayout(pan_fundoLayout);
+        pan_fundoLayout.setHorizontalGroup(
+            pan_fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_fundoLayout.createSequentialGroup()
+                .addGap(387, 387, 387)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(441, Short.MAX_VALUE))
+        );
+        pan_fundoLayout.setVerticalGroup(
+            pan_fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_fundoLayout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
 
         menuCadastro.setText("Cadastro");
-        
 
-        menutItemClientes.setText("Clientes");
-        
-        
-        menuCadastro.add(menutItemClientes);
+        menuItemCliente.setText("Cliente");
+        menuCadastro.add(menuItemCliente);
 
-        menutItemServicos.setText("Serviços");
-        
-        menuCadastro.add(menutItemServicos);
+        menuItemUsuario.setText("Usuário");
+        menuCadastro.add(menuItemUsuario);
 
-        menutItemUsuarios.setText("Usuários");
-        
-        
-        menuCadastro.add(menutItemUsuarios);
+        menuItemServico.setText("Serviço");
+        menuCadastro.add(menuItemServico);
 
-        BarraMenu.add(menuCadastro);
+        jMenuBar1.add(menuCadastro);
 
         menuServicos.setText("Serviços");
 
-        menutItemAgendamento.setText("Agendamento");
-        menuServicos.add(menutItemAgendamento);
+        menuItemAgendamento.setText("Agendamento");
+        menuServicos.add(menuItemAgendamento);
 
-        BarraMenu.add(menuServicos);
+        jMenuBar1.add(menuServicos);
 
         menuVendas.setText("Vendas");
 
-        menutItemVenderProdutos.setText("Vender Produtos");
-        
-        menuVendas.add(menutItemVenderProdutos);
+        menuItemVender.setText("Vender Produtos");
+        menuVendas.add(menuItemVender);
 
-        menutItemEstoque.setText("Estoque");
-        menuVendas.add(menutItemEstoque);
+        menuItemEstoque.setText("Estoque");
+        menuVendas.add(menuItemEstoque);
 
-        BarraMenu.add(menuVendas);
+        jMenuBar1.add(menuVendas);
 
-        menuRelatorio.setText("Relatório");
+        menuRelatorios.setText("Relatórios");
 
-        menutItemGerarRelatorio.setText("Gerar relatório");
-        menuRelatorio.add(menutItemGerarRelatorio);
+        menuItemRelatorio.setText("Gerar Relatório");
+        menuRelatorios.add(menuItemRelatorio);
 
-        BarraMenu.add(menuRelatorio);
+        jMenuBar1.add(menuRelatorios);
 
         menuSair.setText("Sair");
-        
-        BarraMenu.add(menuSair);
+        jMenuBar1.add(menuSair);
 
-        setJMenuBar(BarraMenu);
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(640, 640, 640)
-                .addComponent(lab_Compromissos))
-            .addComponent(img_Fundo)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(440, 440, 440)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pan_fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(lab_Compromissos))
-            .addComponent(img_Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pan_fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menutItemClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menutItemClientesMouseClicked
-        
-        CadastroClientes.getCadastroClientes().setVisible(true);
-        
-    }//GEN-LAST:event_menutItemClientesMouseClicked
-
-    private void menutItemUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menutItemUsuariosMouseClicked
-        CadastroUsuarios.getCadastroUsuarios().setVisible(true);
-    }//GEN-LAST:event_menutItemUsuariosMouseClicked
-
-    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        dispose();
-    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -202,22 +190,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar BarraMenu;
-    private javax.swing.JLabel img_Fundo;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lab_Compromissos;
     private javax.swing.JMenu menuCadastro;
-    private javax.swing.JMenu menuRelatorio;
+    private javax.swing.JMenuItem menuItemAgendamento;
+    private javax.swing.JMenuItem menuItemCliente;
+    private javax.swing.JMenuItem menuItemEstoque;
+    private javax.swing.JMenuItem menuItemRelatorio;
+    private javax.swing.JMenuItem menuItemServico;
+    private javax.swing.JMenuItem menuItemUsuario;
+    private javax.swing.JMenuItem menuItemVender;
+    private javax.swing.JMenu menuRelatorios;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenu menuServicos;
     private javax.swing.JMenu menuVendas;
-    private javax.swing.JMenuItem menutItemAgendamento;
-    private javax.swing.JMenuItem menutItemClientes;
-    private javax.swing.JMenuItem menutItemEstoque;
-    private javax.swing.JMenuItem menutItemGerarRelatorio;
-    private javax.swing.JMenuItem menutItemServicos;
-    private javax.swing.JMenuItem menutItemUsuarios;
-    private javax.swing.JMenuItem menutItemVenderProdutos;
-    private javax.swing.JTable tab_Compromissos;
+    private javax.swing.JPanel pan_fundo;
+    private javax.swing.JTable tab_Horarios;
     // End of variables declaration//GEN-END:variables
 }
