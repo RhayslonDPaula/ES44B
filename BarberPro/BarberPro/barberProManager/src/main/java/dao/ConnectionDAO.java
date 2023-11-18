@@ -20,7 +20,16 @@ public class ConnectionDAO {
             if(conn == null){
                 
                 // jbdc:mysql:// é o driver de conexão. Guardamos o endereco do banco e o user
-                conn = DriverManager.getConnection("jbdc:mysql://localhost:3306/barber", "root", "Playdark@0712");
+                String serverName = "localhost"; // caminho do servidor do BD
+
+		String mydatabase = "barber"; // nome do seu banco de dados
+
+		String caminho = "jdbc:mysql://" + serverName + "/" + mydatabase;
+
+		String username = "root"; // nome de um usuário de seu BD
+
+		String senha = "sua-senha"; // sua senha de acesso
+                conn = DriverManager.getConnection(caminho, username, senha);
             }else{
                 return conn; // Se a conexao ja tiver sido criado.
             }
