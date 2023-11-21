@@ -30,13 +30,17 @@ public class ConnectionDAO {
 
 		String senha = "sua-senha"; // sua senha de acesso
                 conn = DriverManager.getConnection(caminho, username, senha);
+                
+                return conn;
+                
             }else{
                 return conn; // Se a conexao ja tiver sido criado.
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ConexaoDAO " + e.getMessage());
+            return null;
         }
-        return conn;
+        
     }
     
 }

@@ -11,7 +11,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private static MenuPrincipal menuPrinSingleton;
     
-    private MenuPrincipal() {
+    public MenuPrincipal() {
         initComponents();
         
         /* Tentativa Falha de COlocar imagem e tabela
