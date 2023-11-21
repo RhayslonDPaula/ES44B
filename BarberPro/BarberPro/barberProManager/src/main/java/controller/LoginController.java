@@ -1,11 +1,12 @@
 package Controller;
+import View.Estoque;
 import View.Login;
+import controller.helper.LoginHelper;
 import View.MenuPrincipal;
-import dao.ConnectionDAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import dao.UsuarioDAO;
+import model.Usuario;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author paulo
@@ -13,41 +14,29 @@ import javax.swing.JOptionPane;
 public class LoginController {
 
     private final Login login;
-    private final ConnectionDAO connection = new ConnectionDAO();
+    private final LoginHelper helper;
     private final MenuPrincipal menu = null;
     
     public LoginController(Login login){
         this.login = login;
+        this.helper = new LoginHelper(login);
     }
     
-    public void login(String email, String pass){
-        // if the same user of view Login exists on Database -> Log On Menu
-        // else print error
-        // fazer a conexão com o banco
+    public void login() throws SQLException{
+       // Objeto do tipo Connection para receber a conexao.
         
-        // Só permitir a entrada se o email e senha existir no banco
+        Usuario user = helper.obterModelo();
         
-        // menu.getMenuPrincipal().setVisible(true);
+        // pesquisa usuario no banco
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario userAutenticado = usuarioDAO.selectPorEmailSenha(user);
         
-        // /* CONEXAO QUE NÃO DEU CERTO
-        // Objeto do tipo Connection para receber a conexao.
-        Connection conn;
-        conn = connection.getConnection(); // recebe a conexo
-        
-        String sql = "INSERT INTO teste(tes_string, tes_int) VALUES('teste', 1);";
-        
-        PreparedStatement ps = null;
-        
-        try{
-            ps = conn.prepareStatement(sql);
-            
-            ps.execute();
-            ps.close();
-            JOptionPane.showMessageDialog(login, "Deu bom");
-        } catch (SQLException e){
-            JOptionPane.showMessageDialog(login, "Deu ruuim");
+        if(userAutenticado.getPass() != null){
+            Estoque estoque = new Estoque();
+            estoque.setVisible(true);
+        } else {
+            login.exibeMensagem("Usuario ou senha invalidos!");
         }
-        // */
     }
 
     public void getLogin() {
