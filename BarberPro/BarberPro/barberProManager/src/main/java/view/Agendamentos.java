@@ -10,11 +10,17 @@ package View;
  */
 public class Agendamentos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public Agendamentos() {
+    private Agendamentos agendamentoSingleton;
+    
+    private Agendamentos() {
         initComponents();
+    }
+    
+    public Agendamentos getAgendamentos(){
+        if(agendamentoSingleton == null){
+            agendamentoSingleton = new Agendamentos();
+        }
+        return agendamentoSingleton;
     }
 
     /**
@@ -225,6 +231,11 @@ public class Agendamentos extends javax.swing.JFrame {
         BarraMenu.add(menuRelatorio);
 
         menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
         BarraMenu.add(menuSair);
 
         setJMenuBar(BarraMenu);
@@ -294,6 +305,10 @@ public class Agendamentos extends javax.swing.JFrame {
     private void tipoDeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDeServicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoDeServicoActionPerformed
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        MenuPrincipal.getMenuPrincipal().setVisible(true);
+    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments

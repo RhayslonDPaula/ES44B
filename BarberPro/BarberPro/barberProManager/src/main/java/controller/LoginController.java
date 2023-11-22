@@ -1,5 +1,4 @@
 package Controller;
-import View.Estoque;
 import View.Login;
 import controller.helper.LoginHelper;
 import View.MenuPrincipal;
@@ -13,13 +12,13 @@ import java.sql.SQLException;
  */
 public class LoginController {
 
-    private final Login login;
+    private final Login view;
     private final LoginHelper helper;
     private final MenuPrincipal menu = null;
     
-    public LoginController(Login login){
-        this.login = login;
-        this.helper = new LoginHelper(login);
+    public LoginController(Login view){
+        this.view = view;
+        this.helper = new LoginHelper(view);
     }
     
     public void login() throws SQLException{
@@ -32,14 +31,14 @@ public class LoginController {
         Usuario userAutenticado = usuarioDAO.selectPorEmailSenha(user);
         
         if(userAutenticado.getPass() != null){
-            Estoque estoque = new Estoque();
-            estoque.setVisible(true);
+            view.dispose();
+            MenuPrincipal.getMenuPrincipal().setVisible(true);
         } else {
-            login.exibeMensagem("Usuario ou senha invalidos!");
+            view.exibeMensagem("Usuario ou senha invalidos!");
         }
     }
 
     public void getLogin() {
-        login.setVisible(true);
+        view.setVisible(true);
     }
 }

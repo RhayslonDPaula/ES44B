@@ -3,22 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller;
-import View.MenuPrincipal;
+import View.CadastroUsuarios;
 
 /**
- *
  * @author paulo
  */
-public class MainMenuController {
+public class CadUsuariosController {
     
-    private final MenuPrincipal view;
+    CadastroUsuarios view;
     
-    public MainMenuController(MenuPrincipal view){
+    public CadUsuariosController(CadastroUsuarios view){
         this.view = view;
     }
     
-    public void getMainMenu(){
-        view.setVisible(true);
-        System.out.println("Entrou em getMainMenu");
-    }
 }

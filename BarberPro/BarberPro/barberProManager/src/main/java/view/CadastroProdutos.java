@@ -13,10 +13,21 @@ public class CadastroProdutos extends javax.swing.JFrame {
     /**
      * Creates new form Agendamento
      */
-    public CadastroProdutos() {
+    
+    private CadastroProdutos cadProdSingleton;
+    
+    private CadastroProdutos() {
         initComponents();
     }
 
+    public CadastroProdutos getCadastroProdutos(){
+        if(cadProdSingleton == null){
+            cadProdSingleton = new CadastroProdutos();
+        }
+        
+        return cadProdSingleton;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -245,6 +256,11 @@ public class CadastroProdutos extends javax.swing.JFrame {
         BarraMenu.add(menuRelatorio);
 
         menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
         BarraMenu.add(menuSair);
 
         setJMenuBar(BarraMenu);
@@ -306,6 +322,10 @@ public class CadastroProdutos extends javax.swing.JFrame {
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_excluirActionPerformed
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        MenuPrincipal.getMenuPrincipal().setVisible(true);
+    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments

@@ -222,6 +222,11 @@ public class CadastroClientes extends javax.swing.JFrame {
         BarraMenu.add(menuRelatorio);
 
         menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
         BarraMenu.add(menuSair);
 
         setJMenuBar(BarraMenu);
@@ -299,6 +304,10 @@ public class CadastroClientes extends javax.swing.JFrame {
     private void txt_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cidadeActionPerformed
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        MenuPrincipal.getMenuPrincipal().setVisible(true);
+    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments

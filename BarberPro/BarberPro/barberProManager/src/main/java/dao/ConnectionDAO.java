@@ -28,7 +28,7 @@ public class ConnectionDAO {
 
 		String username = "root"; // nome de um usuário de seu BD
 
-		String senha = "sua-senha"; // sua senha de acesso
+		String senha = "Playdark@0712"; // sua senha de acesso
                 conn = DriverManager.getConnection(caminho, username, senha);
                 
                 return conn;

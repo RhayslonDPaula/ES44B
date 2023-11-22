@@ -11,19 +11,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private static MenuPrincipal menuPrinSingleton;
     
-    public MenuPrincipal() {
+    private MenuPrincipal() {
         initComponents();
-        
-        /* Tentativa Falha de COlocar imagem e tabela
-        
-        ImagePanel imagePanel = new ImagePanel("C:/Users/paulo/Documents/MyProjects/ES44B/BarberPro/BarberPro/src/Compromissos do dia.png");
-        
-        // Defina o ImagePanel como o conteúdo do JFrame
-        this.setContentPane(imagePanel);
-        
-        imagePanel.setLayout(new BorderLayout());
-        imagePanel.add(new JScrollPane(tab_Horarios), BorderLayout.CENTER);
-        */
     }
     
     public static MenuPrincipal getMenuPrincipal(){
@@ -42,9 +31,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pan_body = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Horarios = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         menuItemCliente = new javax.swing.JMenuItem();
@@ -60,8 +49,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1280, 823));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pan_body.setBackground(new java.awt.Color(51, 204, 255));
+        pan_body.setForeground(new java.awt.Color(51, 204, 255));
 
         jScrollPane1.setOpaque(false);
 
@@ -79,21 +71,39 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tab_Horarios.setOpaque(false);
         jScrollPane1.setViewportView(tab_Horarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 590, 470));
+        pan_body.add(jScrollPane1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Compromissos do dia (1).png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, -1));
+        getContentPane().add(pan_body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         menuCadastro.setText("Cadastro");
 
         menuItemCliente.setText("Cliente");
+        menuItemCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuItemClienteMouseClicked(evt);
+            }
+        });
+        menuItemCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemClienteActionPerformed(evt);
+            }
+        });
         menuCadastro.add(menuItemCliente);
 
         menuItemUsuario.setText("Usuário");
+        menuItemUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuItemUsuarioMouseClicked(evt);
+            }
+        });
         menuCadastro.add(menuItemUsuario);
 
         menuItemServico.setText("Serviço");
+        menuItemServico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuItemServicoMouseClicked(evt);
+            }
+        });
         menuCadastro.add(menuItemServico);
 
         jMenuBar1.add(menuCadastro);
@@ -101,6 +111,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuServicos.setText("Serviços");
 
         menuItemAgendamento.setText("Agendamento");
+        menuItemAgendamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuItemAgendamentoMouseClicked(evt);
+            }
+        });
         menuServicos.add(menuItemAgendamento);
 
         jMenuBar1.add(menuServicos);
@@ -123,12 +138,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuRelatorios);
 
         menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuSair);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_menuSairMouseClicked
+
+    private void menuItemClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemClienteMouseClicked
+        CadastroClientes cadClient = null;
+        cadClient.getCadastroClientes().setVisible(true);
+        
+    }//GEN-LAST:event_menuItemClienteMouseClicked
+
+    private void menuItemUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemUsuarioMouseClicked
+        CadastroUsuarios.getCadastroUsuarios().setVisible(true);
+    }//GEN-LAST:event_menuItemUsuarioMouseClicked
+
+    private void menuItemServicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemServicoMouseClicked
+        CadastroServico.getCadastroServico().setVisible(true);
+    }//GEN-LAST:event_menuItemServicoMouseClicked
+
+    private void menuItemAgendamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemAgendamentoMouseClicked
+        Agendamentos agendamento = null;
+        agendamento.getAgendamentos().setVisible(true);
+    }//GEN-LAST:event_menuItemAgendamentoMouseClicked
+
+    private void menuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemClienteActionPerformed
+        CadastroClientes cadClient = null;
+        cadClient.getCadastroClientes().setVisible(true);
+    }//GEN-LAST:event_menuItemClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,7 +215,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenu menuCadastro;
@@ -182,6 +229,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenu menuServicos;
     private javax.swing.JMenu menuVendas;
+    private javax.swing.JPanel pan_body;
     private javax.swing.JTable tab_Horarios;
     // End of variables declaration//GEN-END:variables
 }
