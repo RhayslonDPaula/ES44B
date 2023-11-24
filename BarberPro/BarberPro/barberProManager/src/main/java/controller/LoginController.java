@@ -32,7 +32,7 @@ public class LoginController {
         
         if(userAutenticado.getPass() != null){
             view.dispose();
-            MenuPrincipal.getMenuPrincipal().setVisible(true);
+            MenuPrincipal.getMenuPrincipal(userAutenticado).setVisible(true);
         } else {
             view.exibeMensagem("Usuario ou senha invalidos!");
         }
