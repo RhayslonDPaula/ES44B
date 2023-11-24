@@ -216,23 +216,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairMouseClicked
 
     private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
-        /*
         try {
-            if(controller.login(txt_pass.getText(), txt_email.getText())){
-                System.out.println("Voltou no btEntrarMouse");
-                setVisible(false);
-                
-                MenuPrincipal menup = MenuPrincipal.getMenuPrincipal();
-                MainMenuController mainMenuController = new MainMenuController(menup);
-                
-                mainMenuController.getMainMenu();
-            }
-            // chamei o metodo logon do controlador, passando os textos das caixas.
+            controller.login();
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
     }//GEN-LAST:event_btEntrarMouseClicked
 
     private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed

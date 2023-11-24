@@ -4,17 +4,22 @@
  */
 package View;
 
+import model.Usuario;
 /**
  *
  * @author hyuug
  */
 public class Vendas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public Vendas() {
+    private static Vendas vendasSingleton;
+    private Usuario loggedUser;
+    
+    private Vendas() {
         initComponents();
+    }
+    private Vendas(Usuario user) {
+        initComponents();
+        loggedUser = user;
     }
 
     /**
@@ -514,7 +519,8 @@ public class Vendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nomeActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
+        dispose();
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**

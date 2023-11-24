@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import model.Usuario;
 
 /**
  *
@@ -11,15 +12,20 @@ package View;
 public class CadastroServico extends javax.swing.JFrame {
 
     private static CadastroServico cadServSingleton;
+    private Usuario loggedUser;
     
     // private para restringir o uso do construtor
     private CadastroServico() {
         initComponents();
     }
+    private CadastroServico(Usuario user){
+        initComponents();
+        this.loggedUser = user;
+    }
         
-    public static CadastroServico getCadastroServico(){
+    public static CadastroServico getCadastroServico(Usuario user){
         if(cadServSingleton == null){
-            cadServSingleton = new CadastroServico();
+            cadServSingleton = new CadastroServico(user);
         }
         return cadServSingleton; // retorna instancia
     }
@@ -242,7 +248,7 @@ public class CadastroServico extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**

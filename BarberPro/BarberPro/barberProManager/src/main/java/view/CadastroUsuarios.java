@@ -5,7 +5,10 @@
 package View;
 
 import javax.swing.JOptionPane;
-
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import model.Usuario;
+import controller.CadUsuariosController;
 /**
  *
  * @author hyuug
@@ -14,15 +17,24 @@ public class CadastroUsuarios extends javax.swing.JFrame {
 
     private static CadastroUsuarios cadUserSingleton;
     
+    private Usuario loggedUser;
+    private CadUsuariosController cadUserController;
+    
     // private para restirngir o uso do construtor
     private CadastroUsuarios() {
         initComponents();
+        cadUserController = new CadUsuariosController(this);
+    }
+    private CadastroUsuarios(Usuario user) {
+        initComponents();
+        cadUserController = new CadUsuariosController(this);
+        loggedUser = user;
     }
     
     // metodo singleton
-    public static CadastroUsuarios getCadastroUsuarios(){
+    public static CadastroUsuarios getCadastroUsuarios(Usuario user){
         if(cadUserSingleton == null){
-            cadUserSingleton = new CadastroUsuarios();
+            cadUserSingleton = new CadastroUsuarios(user);
         }
         return cadUserSingleton;
     }
@@ -295,7 +307,20 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_menutItemUsuariosActionPerformed
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
-        // TODO add your handling code here:
+        Object[] options = { "Confirmar", "Cancelar" };
+        
+        int confirm = JOptionPane.showOptionDialog(
+                null, "Clique Confirmar para continuar", 
+                "Informação", JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.QUESTION_MESSAGE, null, options, 
+                options[0])
+            ;
+        
+        if(confirm == 0){
+            cadUserController.adicionaFunc();
+        } else {
+            exibeMensagem("Ação cancelada!");
+        }
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
@@ -303,7 +328,8 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_senhaActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        System.exit(0);
+        dispose();
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**
@@ -394,4 +420,87 @@ public class CadastroUsuarios extends javax.swing.JFrame {
     public void exibeMensagem(String msg){
         JOptionPane.showMessageDialog(null, msg);
     }
+    
+    // getters and Setters dos texts fields and spinners
+
+    public JSpinner getSpin_acesso() {
+        return spin_acesso;
+    }
+
+    public void setSpin_acesso(JSpinner spin_acesso) {
+        this.spin_acesso = spin_acesso;
+    }
+
+    public JTextField getTxt_celular() {
+        return txt_celular;
+    }
+
+    public void setTxt_celular(JTextField txt_celular) {
+        this.txt_celular = txt_celular;
+    }
+
+    public JTextField getTxt_cidade() {
+        return txt_cidade;
+    }
+
+    public void setTxt_cidade(JTextField txt_cidade) {
+        this.txt_cidade = txt_cidade;
+    }
+
+    public JTextField getTxt_email() {
+        return txt_email;
+    }
+
+    public void setTxt_email(JTextField txt_email) {
+        this.txt_email = txt_email;
+    }
+
+    public JTextField getTxt_endereco() {
+        return txt_endereco;
+    }
+
+    public void setTxt_endereco(JTextField txt_endereco) {
+        this.txt_endereco = txt_endereco;
+    }
+
+    public JTextField getTxt_funcao() {
+        return txt_funcao;
+    }
+
+    public void setTxt_funcao(JTextField txt_funcao) {
+        this.txt_funcao = txt_funcao;
+    }
+
+    public JTextField getTxt_nascimento() {
+        return txt_nascimento;
+    }
+
+    public void setTxt_nascimento(JTextField txt_nascimento) {
+        this.txt_nascimento = txt_nascimento;
+    }
+
+    public JTextField getTxt_nome() {
+        return txt_nome;
+    }
+
+    public void setTxt_nome(JTextField txt_nome) {
+        this.txt_nome = txt_nome;
+    }
+
+    public JTextField getTxt_senha() {
+        return txt_senha;
+    }
+
+    public void setTxt_senha(JTextField txt_senha) {
+        this.txt_senha = txt_senha;
+    }
+
+    public JTextField getTxt_sobrenome() {
+        return txt_sobrenome;
+    }
+
+    public void setTxt_sobrenome(JTextField txt_sobrenome) {
+        this.txt_sobrenome = txt_sobrenome;
+    }
+    
 }

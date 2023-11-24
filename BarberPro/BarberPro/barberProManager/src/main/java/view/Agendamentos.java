@@ -4,19 +4,26 @@
  */
 package View;
 
+import model.Usuario;
+
 /**
  *
  * @author hyuug
  */
 public class Agendamentos extends javax.swing.JFrame {
 
-    private Agendamentos agendamentoSingleton;
+    private static Agendamentos agendamentoSingleton;
+    private Usuario loggedUser;
     
     private Agendamentos() {
         initComponents();
     }
+    private Agendamentos(Usuario user) {
+        initComponents();
+        loggedUser = user;
+    }
     
-    public Agendamentos getAgendamentos(){
+    public static Agendamentos getAgendamentos(){
         if(agendamentoSingleton == null){
             agendamentoSingleton = new Agendamentos();
         }
@@ -307,7 +314,8 @@ public class Agendamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_tipoDeServicoActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
+        dispose();
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**

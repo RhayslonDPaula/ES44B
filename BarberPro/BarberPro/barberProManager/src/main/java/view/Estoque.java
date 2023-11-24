@@ -4,17 +4,29 @@
  */
 package View;
 
+import model.Usuario;
 /**
  *
  * @author hyuug
  */
 public class Estoque extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    public Estoque() {
+    private static Estoque estoqueSingleton;
+    private Usuario loggedUser;
+    
+    private Estoque() {
         initComponents();
+    }
+    private Estoque(Usuario user) {
+        initComponents();
+        loggedUser = user;
+    }
+    
+    public Estoque getEstoque(Usuario user){
+        if(estoqueSingleton == null){
+            estoqueSingleton = new Estoque(user);
+        }
+        return estoqueSingleton;
     }
 
     /**
@@ -248,8 +260,8 @@ public class Estoque extends javax.swing.JFrame {
     }//GEN-LAST:event_menuSairActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
-        System.exit(0);
+        dispose();
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**

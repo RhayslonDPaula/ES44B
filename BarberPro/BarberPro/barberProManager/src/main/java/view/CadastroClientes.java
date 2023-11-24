@@ -4,6 +4,7 @@
  */
 package View;
 
+import model.Usuario;
 /**
  *
  * @author hyuug
@@ -12,10 +13,15 @@ public class CadastroClientes extends javax.swing.JFrame {
 
     // var singleton para receber a instância;
     private static CadastroClientes cadCliSingleton;
+    private Usuario loggedUser;
     
     //private para restringir o uso do construtor.
     private CadastroClientes() {
         initComponents();
+    }
+    private CadastroClientes(Usuario user) {
+        initComponents();
+        loggedUser = user;
     }
     
     // Singleton para evitar múltiplas instâncias
@@ -306,7 +312,8 @@ public class CadastroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_cidadeActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
+        dispose();
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**

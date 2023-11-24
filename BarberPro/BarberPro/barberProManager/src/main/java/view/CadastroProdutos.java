@@ -4,25 +4,27 @@
  */
 package View;
 
+import model.Usuario;
 /**
  *
  * @author hyuug
  */
 public class CadastroProdutos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agendamento
-     */
-    
+    private Usuario loggedUser;   
     private CadastroProdutos cadProdSingleton;
     
     private CadastroProdutos() {
         initComponents();
     }
+    private CadastroProdutos(Usuario user) {
+        initComponents();
+        loggedUser = user;
+    }
 
-    public CadastroProdutos getCadastroProdutos(){
+    public CadastroProdutos getCadastroProdutos(Usuario user){
         if(cadProdSingleton == null){
-            cadProdSingleton = new CadastroProdutos();
+            cadProdSingleton = new CadastroProdutos(user);
         }
         
         return cadProdSingleton;
@@ -324,7 +326,8 @@ public class CadastroProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_excluirActionPerformed
 
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
-        MenuPrincipal.getMenuPrincipal().setVisible(true);
+        dispose();
+        MenuPrincipal.getMenuPrincipal(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuSairMouseClicked
 
     /**

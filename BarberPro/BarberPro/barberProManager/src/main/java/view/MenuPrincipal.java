@@ -2,6 +2,7 @@ package View;
 
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
+import model.Usuario;
 
 /**
  *
@@ -10,14 +11,19 @@ import javax.swing.JScrollPane;
 public class MenuPrincipal extends javax.swing.JFrame {
 
     private static MenuPrincipal menuPrinSingleton;
+    private static Usuario loggedUser;
     
     private MenuPrincipal() {
         initComponents();
     }
+    private MenuPrincipal(Usuario user){
+        loggedUser = user;
+        initComponents();
+    }
     
-    public static MenuPrincipal getMenuPrincipal(){
+    public static MenuPrincipal getMenuPrincipal(Usuario user){
         if(menuPrinSingleton == null){
-            menuPrinSingleton = new MenuPrincipal();
+            menuPrinSingleton = new MenuPrincipal(user);
         }
         return menuPrinSingleton;
     }
@@ -96,6 +102,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 menuItemUsuarioMouseClicked(evt);
             }
         });
+        menuItemUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemUsuarioActionPerformed(evt);
+            }
+        });
         menuCadastro.add(menuItemUsuario);
 
         menuItemServico.setText("Serviço");
@@ -161,11 +172,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemClienteMouseClicked
 
     private void menuItemUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemUsuarioMouseClicked
-        CadastroUsuarios.getCadastroUsuarios().setVisible(true);
+        CadastroUsuarios.getCadastroUsuarios(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuItemUsuarioMouseClicked
 
     private void menuItemServicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemServicoMouseClicked
-        CadastroServico.getCadastroServico().setVisible(true);
+        CadastroServico.getCadastroServico(loggedUser).setVisible(true);
     }//GEN-LAST:event_menuItemServicoMouseClicked
 
     private void menuItemAgendamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemAgendamentoMouseClicked
@@ -177,6 +188,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadastroClientes cadClient = null;
         cadClient.getCadastroClientes().setVisible(true);
     }//GEN-LAST:event_menuItemClienteActionPerformed
+
+    private void menuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUsuarioActionPerformed
+        dispose();
+        CadastroUsuarios.getCadastroUsuarios(loggedUser).setVisible(true);
+    }//GEN-LAST:event_menuItemUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
