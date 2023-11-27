@@ -10,24 +10,27 @@ import dao.ProdutosDAO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import model.Usuario;
 
 /**
  *
  * @author hyuug
  */
 public class CadastroProdutos extends javax.swing.JFrame {
-    private ConnectionDAO connection;
     private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
     private ProdutosDAO produtosDAO;
 
+    private CadastroProdutos cadProdSingleton; // var singleton
+    private Usuario loggedUser;
+    
     /**
      * Creates new form Agendamento
      */
-    public CadastroProdutos(ConnectionDAO connection) {
-        this.connection = connection;
-        produtosDAO = new ProdutosDAO(connection);
+    public CadastroProdutos() {
+        produtosDAO = new ProdutosDAO();
         initComponents();
     }
+    
     private CadastroProdutos(Usuario user) {
         initComponents();
         loggedUser = user;
