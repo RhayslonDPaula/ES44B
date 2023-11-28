@@ -1,3 +1,4 @@
+
 USE barber;
  
 -- View para exibir a quantidade de cortes por cliente.
@@ -16,8 +17,8 @@ CREATE VIEW vw_cortes_por_cliente AS
 		Com ela eu consigo comparar os id na tabela de venda e na tabela simulada, assim eu consigo
 		a quantidade de vendas por cada id.
 	*/
-    
-    
+
+
 -- View para exibir a quantidade de compras realizadas pelos clientes
 CREATE VIEW vw_compras_por_cliente AS
 SELECT ven_idCliente, qtdCompras,
@@ -48,7 +49,7 @@ CREATE VIEW vw_vendas_mes_atual AS
 	GROUP BY v.fun_id;
 	
     /* A lógica das datas consiste em comparar a data da venda com o intervalo de tempo determinado.
-    O intervalo é do primeiro dia do mês até 30 dias depois dele. O primeiro DATE_FORMAT formata o dia
-    do mês atual para primeiro dia. O segundo faz a mesma formação e, com a func DATE_ADD, adiciona 
-    30 dias partindo do dia 1. Então iremos verificar se a data da venda está dentro (between) desse intervalo.
-    */
+		O intervalo é do primeiro dia do mês até 30 dias depois dele. O primeiro DATE_FORMAT formata o dia
+		do mês atual para primeiro dia. O segundo faz a mesma formação e, com a func DATE_ADD, adiciona 
+		30 dias partindo do dia 1. Então iremos verificar se a data da venda está dentro (between) desse intervalo.
+	*/

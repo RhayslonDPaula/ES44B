@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS funcionario(
     fun_nome VARCHAR(45) NOT NULL,
     fun_cargo VARCHAR(15) NOT NULL,
     fun_nivelAcesso INT NOT NULL,
+    fun_email VARCHAR(55),
+    fun_senha VARCHAR(15),
     fun_nascimento DATE,
     fun_telefone1 VARCHAR(11),
     fun_telefone2 VARCHAR(11),
@@ -93,73 +95,100 @@ CREATE TABLE IF NOT EXISTS cortes_servicos(
     REFERENCES servicos(ser_id) ON DELETE SET NULL
 );
 
-/*
+CREATE TABLE IF NOT EXISTS agendamento(
+	age_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    age_cliente VARCHAR(45),
+    age_servico VARCHAR(45),
+    age_data DATETIME,
+    age_horario VARCHAR(10),
+    age_barbeiro VARCHAR(15)
+);
+
+
 -- INSERTS PARA TESTAR O BANCO E SUAS CONSTRAINTS
+/*
 INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
-VALUES('Jorge', 26, '43912345678', 'Leópolis', 'Rua Leleu da Capixaba, 99');
+	VALUES('Jorge', 26, '43912345678', 'Leópolis', 'Rua Leleu da Capixaba, 99');
 
 INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
-VALUES('Janja', 35, '43912345678', 'Distrito Federal', '3 poderes, 3');
+	VALUES('Janja', 35, '43912345678', 'Distrito Federal', '3 poderes, 3');
+
 --
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_senha, fun_nascimento, 
+fun_cidade)
+	VALUES('admin', 'admin', 3, 'admin', '2023-11-07', 'Cornélio Procópio');
 
-INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
-	fun_cidade, fun_endereco)
-VALUES('Paulo', 'admin', 3, '2001-12-07', '43912345678', 'Cornélio Procópio', 'Rua 1, 99');
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, 
+fun_nascimento, fun_telefone1, fun_cidade, fun_endereco)
+	VALUES('Paulo', 'admin', 3, 'paulo@gmail.com', 'paulindo', '2001-12-07', '43912345678', 
+		'Cornélio Procópio', 'Rua 1, 99');
 
-INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
-	fun_cidade, fun_endereco)
-VALUES('Emma', 'admin', 3, '1998-01-01', '43912345678', 'Cornélio Procópio', 'Rua 2, 100');
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, 
+fun_nascimento, fun_telefone1, fun_cidade, fun_endereco)
+	VALUES('Emma', 'admin', 3, 'emma@gmail.com', 'antonia', '1998-01-01', '43912345678', 
+		'Cornélio Procópio', 'Rua 2, 100');
 
-INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_nascimento, fun_telefone1, 
-	fun_cidade, fun_endereco)
-VALUES('Rhay', 'admin', 3, '1994-01-01', '43912345678', 'Andirá', 'Rua 3, 101');
+INSERT INTO funcionario(fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, 
+fun_nascimento, fun_telefone1, fun_cidade, fun_endereco)
+	VALUES('Rhayslon', 'admin', 3, 'rhayslon@gmail.com', 'Rhaybarba', '1994-01-01', 
+		'43912345678', 'Andirá', 'Rua 3, 101');
 --
 
 INSERT INTO produtos(pro_nome, pro_marca, pro_categoria, pro_quantidade, pro_preco, 
 	pro_fabricacao, pro_vencimento)
-VALUES('Shampoo para cachos 1', 'SalonLine', 'Shampoos', 3, 14.50, '2023-10-28', '2024-10-28');
+	VALUES('Shampoo para cachos 1', 'SalonLine', 'Shampoos', 3, 14.50, '2023-10-28', '2024-10-28');
 --
 
 INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
-VALUES(1, 1, '2023-10-26', 14.50);
+	VALUES(1, 1, '2023-11-06', 14.50);
 
 INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
-VALUES(2, 2, '2023-10-26', 14.50);
+	VALUES(2, 2, '2023-11-06', 14.50);
 
 INSERT INTO venda(fun_id, ven_idCliente, ven_dataVenda, ven_valorTotal)
-VALUES(3, 1, '2023-10-26', 14.50);
+	VALUES(3, 1, '2023-11-06', 14.50);
 --
 
 INSERT INTO venda_produtos
-VALUES(1, 1); -- [venda], [produto]
+	VALUES(1, 1, 1); -- [venda], [produto], [qtd]
 
 INSERT INTO venda_produtos
-VALUES(2, 1);
+	VALUES(2, 1, 1);
 
 INSERT INTO venda_produtos
-VALUES(3, 1);
+	VALUES(3, 1, 1);
 --
 
 INSERT INTO servicos(ser_nomeServico, ser_categoria, ser_duracaoServico)
-VALUES('Corte de Cabelo', 'Cabelo', 25);
+	VALUES('Corte de Cabelo Basico', 'Cabelo', 25);
+
+INSERT INTO servicos(ser_nomeServico, ser_categoria, ser_duracaoServico)
+	VALUES('Barba basica', 'Barba', 15);
 --
 
 INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
-VALUES(1, 1, '2023-10-26', 25);
+	VALUES(1, 1, '2023-11-06', 25);
 
 INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
-VALUES(2, 2, '2023-10-27', 30);
+	VALUES(2, 2, '2023-11-07', 30);
 
 INSERT INTO cortes(fun_id, cor_idCliente, cor_dataCorte, cor_valorTotal)
-VALUES(2, 1, '2023-10-29', 25);
+	VALUES(2, 1, '2023-11-07', 25);
 --
 
 INSERT INTO cortes_servicos
-VALUES(1, 1);
+	VALUES(1, 1);
 
 INSERT INTO cortes_servicos
-VALUES(2, 1);
+	VALUES(2, 1);
 
 INSERT INTO cortes_servicos
-VALUES(3, 1);
+	VALUES(3, 1);
+
+--
+INSERT INTO agendamento (age_cliente, age_servico, age_data, age_horario, age_barbeiro)
+	VALUES('Jorge', 'Cabelo e Barba', '2023-12-01', '10:00', 'Emma');
+    
+INSERT INTO agendamento (age_cliente, age_servico, age_data, age_horario, age_barbeiro)
+	VALUES('Janja', 'Cabelo', '2023-12-01', '12:00', 'Emma');
 */
