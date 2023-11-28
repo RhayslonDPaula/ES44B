@@ -4,6 +4,7 @@
  */
 package controller;
 import View.MenuPrincipal;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -21,4 +22,8 @@ public class MainMenuController {
         view.setVisible(true);
         System.out.println("Entrou em getMainMenu");
     }
+
+   public void populaTable(){
+       
+   }
 }

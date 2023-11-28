@@ -19,7 +19,7 @@ public class FuncionarioDAO {
     public FuncionarioDAO(){
     }
     
-    public void insertFuncionario(Funcionario fun) throws SQLException{
+    public int insertFuncionario(Funcionario fun) throws SQLException{
         Funcionario func = fun;
         
         /**
@@ -28,17 +28,34 @@ public class FuncionarioDAO {
         
         Connection conn;
         conn = ConnectionDAO.getConnection(); // recebe a conexo
-        
+        PreparedStatement statement = null;
         // prepara a string sql
-        String sql = "INSERT INTO(fun_nome, fun_cargo, fun_nivelAcesso, fun_senha, fun_nascimento, fun_cidade, fun_endereco) "
-                + "VALUES('" + func.getFun_nome() + "', '" + func.getFun_cargo() + "', " + func.getFun_nvlAcesso() 
-                + ", '" + func.getSenha() + "', '" + func.getNascimento() + ", '" + func.getFun_Cidade() +", '" + func.getFun_Endereco() + "');";
-        
+        // String sql = "USE barber; INSERT INTO funcionario (fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, fun_cidade, fun_endereco) VALUES (?, ?, ?, ?, ?, ?, ?);";
+              
         try{
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.executeQuery();
-        }catch(SQLException sqe){
+            statement = conn.prepareStatement("USE barber; INSERT INTO funcionario (fun_nome, fun_cargo, fun_nivelAcesso, fun_email, fun_senha, fun_cidade, fun_endereco) VALUES (?, ?, ?, ?, ?, ?, ?);");
             
+            // setando os indexadores '?'
+            statement.setString(1, func.getFun_nome());
+            statement.setString(2, func.getFun_cargo());
+            statement.setInt(3, func.getFun_nvlAcesso());
+            // statement.setString(4, func.getNascimento());
+            statement.setString(4, func.getEmail());
+            statement.setString(5, func.getSenha());
+            statement.setString(6, func.getFun_Cidade());
+            statement.setString(7, func.getFun_Endereco());
+            
+            // statement.executeQuery(); // executa no banco
+            int confirm = statement.executeUpdate(); // captura as rows affected
+            
+            // se nao houver row affected, retorna 0 para a verificacao no controller
+            if(confirm > 0){
+                return 1;
+            } else {
+                return 0;
+            }
+        }catch(SQLException sqe){
+            return 0;
         }
     }
     

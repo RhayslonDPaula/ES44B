@@ -8,8 +8,7 @@ import Model.Funcionario;
 import dao.FuncionarioDAO;
 import controller.helper.CadUsuariosHelper;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  * @author paulo
  */
@@ -30,14 +29,19 @@ public class CadUsuariosController {
     public void adicionaFunc(){
         Funcionario func = new Funcionario();
         
-        func = helper.obtemModelo(); // recebe o modelo
+        func = helper.obtemModelo(); // recebe o modelo (helper ta funcionando)
         
         try {
-            if(func.getEmail() == null || func.getSenha() == null || func.getFun_cargo() == null || func.getFun_nome() == null){
+            if("".equals(func.getEmail()) || "".equals(func.getSenha()) || "".equals(func.getFun_cargo()) || "".equals(func.getFun_nome())){
                 cadUserView.exibeMensagem("Por favor, preencha ao menos os campos obrigatorios!");
             } else {
-                funcionarioDao.insertFuncionario(func); 
-                cadUserView.exibeMensagem("Funcionario Adicionado com sucesso!");
+                confirma = funcionarioDao.insertFuncionario(func); 
+                
+                if(confirma == 1){
+                    cadUserView.exibeMensagem("Funcionario Adicionado com sucesso!");
+                } else {
+                    cadUserView.exibeMensagem("Erro ao adicionar funcionario (dentro do FuncDAO!)");
+                }
             }
         } catch (SQLException ex) {
             cadUserView.exibeMensagem("Erro ao adicionar funcionario");

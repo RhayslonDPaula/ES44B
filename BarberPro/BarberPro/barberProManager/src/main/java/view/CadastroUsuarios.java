@@ -9,10 +9,11 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import model.Usuario;
 import controller.CadUsuariosController;
+
 /**
- *
  * @author hyuug
  */
+
 public class CadastroUsuarios extends javax.swing.JFrame {
 
     private static CadastroUsuarios cadUserSingleton;

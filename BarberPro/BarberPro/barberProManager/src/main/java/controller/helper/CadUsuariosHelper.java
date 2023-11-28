@@ -13,6 +13,7 @@ import Model.Funcionario;
 public class CadUsuariosHelper {
     
     CadastroUsuarios cadUser;
+    
     // constructor
     public CadUsuariosHelper(CadastroUsuarios view){
         cadUser = view;
