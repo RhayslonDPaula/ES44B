@@ -95,6 +95,16 @@ CREATE TABLE IF NOT EXISTS cortes_servicos(
     REFERENCES servicos(ser_id) ON DELETE SET NULL
 );
 
+CREATE TABLE IF NOT EXISTS agendamento(
+	age_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    age_cliente VARCHAR(45),
+    age_servico VARCHAR(45),
+    age_data DATETIME,
+    age_horario VARCHAR(10),
+    age_barbeiro VARCHAR(15)
+);
+
+
 -- INSERTS PARA TESTAR O BANCO E SUAS CONSTRAINTS
 /*
 INSERT INTO cliente(cli_nome, cli_idade, cli_telefone1, cli_cidade, cli_endereco)
@@ -174,4 +184,11 @@ INSERT INTO cortes_servicos
 
 INSERT INTO cortes_servicos
 	VALUES(3, 1);
+
+--
+INSERT INTO agendamento (age_cliente, age_servico, age_data, age_horario, age_barbeiro)
+	VALUES('Jorge', 'Cabelo e Barba', '2023-12-01', '10:00', 'Emma');
+    
+INSERT INTO agendamento (age_cliente, age_servico, age_data, age_horario, age_barbeiro)
+	VALUES('Janja', 'Cabelo', '2023-12-01', '12:00', 'Emma');
 */
